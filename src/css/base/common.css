@@ -1,5 +1,18 @@
 :root {
+  /* Fonts */
   --main-font: 'DM Sans', sans-serif;
+  /* Colors */
+  --black-color: #000000;
+  --light-black-color: #111111;
+  --white-color: #ffffff;
+  --blue-color: #4f2ee8;
+  --dark-grey-color: #202024;
+  --light-grey-color: #f6f6f6;
+  --grey-text-color: #b4afaf;
+  --yellow-color: #eac645;
+  /* Transition */
+  --transition-duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,
@@ -29,10 +42,22 @@ img {
 
 button {
   cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: inherit;
+  font-family: inherit;
+  outline-color: transparent;
 }
 
 a {
   text-decoration: none;
+}
+
+body {
+  font-size: var(--main-font);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.12;
 }
 
 .aside-wrapper {
