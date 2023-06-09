@@ -10,7 +10,6 @@ swaggerCategoriesApi.fetchBooksCategoryList()
     const searchCategory = data.map(category => {
       return `<a class="aside-link"><li class="aside-item">${category.list_name}</li></a>`
     }).join("")
-    console.log(searchCategory);
     categoriesList.innerHTML = searchCategory
 }).catch((error) => {
   console.log(error);
@@ -22,4 +21,4 @@ onCategoriesLinkClick = event => {
 // console.log(event);
 }
 
-categoriesLink.addEventListener('click', onCategoriesLinkClick)
+categoriesList.addEventListener('click', onCategoriesLinkClick)
