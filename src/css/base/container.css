@@ -4,6 +4,8 @@
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
+
+  outline: 1px solid red;
 }
 
 @media only screen and (min-width: 768px) {
@@ -16,6 +18,9 @@
 
 @media only screen and (min-width: 1440px) {
   .container {
+    display: flex;
+    gap: 40px;
+
     max-width: 1440px;
     padding-left: 24px;
     padding-right: 24px;
