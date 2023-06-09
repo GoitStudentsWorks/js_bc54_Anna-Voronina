@@ -1,0 +1,36 @@
+.support-container {
+  width: 255px;
+  height: 308px;
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+  border-radius: 17px;
+  padding: 24px 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .support-container {
+    width: 255px;
+    height: 434px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .support-container {
+    width: 276px;
+    height: 442px;
+  }
+}
+
+/* .sup-ukr-header {
+}
+.sup-ukr-text {
+}
+.support-company {
+}
+.sup-comp-numb {
+}
+.sup-ukr-scroll-btn {
+} */
