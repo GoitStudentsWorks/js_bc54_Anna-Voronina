@@ -29,6 +29,11 @@ img {
 
 button {
   cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: inherit;
+  font-family: inherit;
+  outline-color: transparent;
 }
 
 a {
