@@ -11,7 +11,6 @@
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  display: none;
 }
 
 .modal {
@@ -156,13 +155,13 @@
 }
 
 .modal-icon {
- mix-blend-mode: luminosity;
- transition: filter var(--transition-duration) var(--timing-function);
+  mix-blend-mode: luminosity;
+  transition: filter var(--transition-duration) var(--timing-function);
 }
 
 .modal-icon:hover,
 .modal-icon:focus {
-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 }
 
 .modal-btn {
@@ -182,7 +181,7 @@ filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 
 .modal-btn:hover,
 .modal-btn:focus {
-background-color: var(--blue-color);
+  background-color: var(--blue-color);
 }
 
 @media screen and (min-width: 768px) {
