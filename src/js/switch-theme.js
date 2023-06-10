@@ -10,3 +10,4 @@ switchInput.addEventListener('change', () => {
     document.body.classList.remove('dark-theme');
   }
 });
+

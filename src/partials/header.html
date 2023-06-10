@@ -1,31 +1,49 @@
 <div class="container header-container">
     <!-- <div class="center-align"> -->
-      <div class="logo-header">
-        <a class="logo" href="./index.html">
-          <svg width="24" height="24">
-            <use href="./images/sprite.svg#logo"></use>
-          </svg>
-          <svg class="bookshelf-logo" width="77" height="13">
-            <use href="./images/sprite.svg#bookshelf"></use>
-          </svg>
-          <!-- <span class="logo-text-part">Bookshelf</span> -->
-        </a>
-      </div>
+        <!-- <div class="logo-header"> -->
+            <a class="logo" href="./index.html">
+              <div class="logo-images">
+                <svg width="24" height="24">
+                  <use href="./images/sprite.svg#logo"></use>
+                </svg>
+                <svg class="bookshelf-logo" width="77" height="13">
+                  <use href="./images/sprite.svg#bookshelf"></use>
+                </svg>
+              </div>
+            </a>
+          <!-- </div> -->
+
+          <nav class="header-nav">
+            <ul class="list header-nav-list">
+              <li class="header-nav-item">
+                <a class="header-nav-link current" href="./index.html"
+                  >HOME</a
+                >
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-link" href="./shopping-list.html"
+                  >SHOPPING LIST</a
+                >
+              </li>
+            </ul>
+          </nav>
   
-      <div class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
+      <div class="switсher-burger">
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+      
+          <button
+            class="menu-burger js-open-menu-hamburger"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg class="menu-burger-icon-open" width="28" height="28">
+              <use href="./images/sprite.svg#burger"></use>
+            </svg>
+          </button>
       </div>
-  
-      <button
-        class="menu-hamburger js-open-menu-hamburger"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <svg class="menu-hamburger-icon-open" width="28" height="28">
-          <use href="./images/sprite.svg#burger"></use>
-        </svg>
-      </button>
     <!-- </div> -->
   </div>
   
