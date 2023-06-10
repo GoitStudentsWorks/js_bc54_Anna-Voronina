@@ -1,4 +1,5 @@
-import { SwaggerAPI } from './swagger-api';
+import { SwaggerAPI } from './swagger-api.js';
+import createBook from './templates/create-book.js';
 
 const booksContainer = document.querySelector('.category-list');
 
@@ -10,28 +11,27 @@ onload = event => {
 
 const topBooksAPI = new SwaggerAPI();
 
-function createBook(bookInfo) {
-  const markup = bookInfo
-    .map(book => {
-      const { book_image, description, title, author } = book;
-      return `<li class="category-list-item">
-                       <a class="book-link" href="">
-                          <img class="book-image" src="${book_image}" alt="${description}" />
-                           <div class="book-card-content">
-                            <h2 class="book-title">${title}</h2>
-                           <p class="book-author">${author}</p>
-                         </div>
-                      </a>
-                     </li>`;
-    })
-    .join('');
-  return markup;
-}
-
+// function createBook(bookInfo) {
+//   const markup = bookInfo
+//     .map(book => {
+//       const { book_image, description, title, author } = book;
+//       return `<li class="category-list-item">
+//                        <a class="book-link" href="">
+//                           <img class="book-image" src="${book_image}" alt="${description}" />
+//                            <div class="book-card-content">
+//                             <h2 class="book-title">${title}</h2>
+//                            <p class="book-author">${author}</p>
+//                          </div>
+//                       </a>
+//                      </li>`;
+//     })
+//     .join('');
+//   return markup;
+// }
 
 async function createBlock() {
   const { data } = await topBooksAPI.fetchTopBooks();
-  
+
   for (let i = 0; i < 4; i++) {
     let topBooks = data[i].books;
     let markup = null;
