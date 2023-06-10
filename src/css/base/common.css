@@ -71,7 +71,7 @@ body {
   .aside-wrapper {
     display: flex;
     gap: 32px;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
   }
 }
 
@@ -81,6 +81,10 @@ body {
     gap: 86px;
     padding-bottom: 0;
   }
+}
+
+.main-content {
+  padding-top: 40px;
 }
 
 @media only screen and (min-width: 1440px) {
