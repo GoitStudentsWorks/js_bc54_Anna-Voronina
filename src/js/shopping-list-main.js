@@ -17,12 +17,27 @@ const shopContainer = async () => {
     const { data } = await booksApi.fetchBookById();
     Storage.addBookToStorage(data)
 
+
     if (bookStorage) {
         listContainer.innerHTML = `
         <ul class="shop-cart-list">
             ${getShoppingCartMarkup(bookStorage)}
         </ul>
         `
+        const deleteCardItem = document.querySelectorAll('.shop-cart-btn');
+        deleteCardItem.forEach(btn => {
+            btn.addEventListener('click', e => {
+            if (e.target.nodeName === 'BUTTON' || e.target.nodeName === 'svg' || e.target.nodeName === 'use') {
+                const deleteBookIndex = bookStorage.indexOf(bookStorage.find(book => book.title === e.currentTarget.dataset.title))
+                if (deleteBookIndex < 0) {
+                    return;
+                }
+                bookStorage.splice(deleteBookIndex, 1);
+                Storage.save('bookList', bookStorage);
+                e.target.closest('li').remove();
+            }
+            })
+        })
     } 
 } 
 shopContainer()
