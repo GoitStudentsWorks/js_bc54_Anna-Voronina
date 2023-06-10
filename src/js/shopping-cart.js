@@ -1,3 +1,7 @@
+import amazonImg from "../images/shopping/amazon.png";
+import appleBook from "../images/shopping/apple.png";
+import bookShopIcon from "../images/shopping/bookshop.png";
+
 export default function (bookColection) {
   const markup = bookColection
     .map(book => {
@@ -12,7 +16,7 @@ export default function (bookColection) {
         bookShop,
       } = book;
 
-      return `<li>
+      return `<li class="shop-cart-container">
             <div class="shop-cart-wrap">
                 <div class="shop-image-wrapper">
                     <img class="shop-image" src="${book_image}" alt="${title}">
@@ -27,8 +31,8 @@ export default function (bookColection) {
                             <a href="${amazon}" target="_blank" rel="noopener noreferrer"></a>
                                 <picture>
                                     <!-- <source srcset="./images/modal-window/amazon.webp" type="image/webp" /> -->
-                                    <source srcset="../images/shopping/amazon.png" type="image/png" />
-                                    <img class="amazon-icon" src="../images/shopping/amazon.png" alt="Amazon logo" />
+                                    <source srcset="${amazonImg}" type="image/png" />
+                                    <img class="amazon-icon" src="${amazonImg}" alt="Amazon logo" />
                                 </picture>
                             </a>    
                         </li>
@@ -36,8 +40,8 @@ export default function (bookColection) {
                             <a href="${apple}" target="_blank" rel="noopener noreferrer">
                                 <picture>
                                     <!-- <source srcset="./images/modal-window/amazon.webp" type="image/webp" /> -->
-                                    <source srcset="../images/shopping/apple.png" type="image/png" />
-                                    <img class="amazon-icon" src="../images/shopping/apple.png" alt="Apple book logo" />
+                                    <source srcset="${appleBook}" type="image/png" />
+                                    <img class="amazon-icon" src="${appleBook}" alt="Apple book logo" />
                                 </picture>
                             </a>
                         </li>
@@ -45,8 +49,8 @@ export default function (bookColection) {
                             <a href="${bookShop}" target="_blank" rel="noopener noreferrer">
                                 <picture>
                                     <!-- <source srcset="./images/modal-window/amazon.webp" type="image/webp" /> -->
-                                    <source srcset="../images/shopping/bookshop.png" type="image/png" />
-                                    <img class="amazon-icon" src="../images/shopping/bookshop.png" alt="Book shop logo" />
+                                    <source srcset="${bookShopIcon}" type="image/png" />
+                                    <img class="amazon-icon" src="${bookShopIcon}" alt="Book shop logo" />
                                 </picture>
                             </a>
                         </li>
