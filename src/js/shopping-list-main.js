@@ -13,9 +13,9 @@ const listContainer = document.querySelector('.js-shopping-list')
 const bookStorage = Storage.load('bookList')
 
 const shopContainer = async () => {
-    // booksApi.bookId = "643282b2e85766588626a0e2";
-    // const { data } = await booksApi.fetchBookById();
-    // Storage.addBookToStorage(data)
+    booksApi.bookId = "643282b2e85766588626a0e2";
+    const { data } = await booksApi.fetchBookById();
+    Storage.addBookToStorage(data)
 
     if (bookStorage) {
         listContainer.innerHTML = `
