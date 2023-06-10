@@ -11,13 +11,15 @@
 .sup-content-wrp {
   width: 335px;
   height: 284px;
-  /* height: 352px; */
-
   padding-top: 24px;
   padding-left: 40px;
   padding-bottom: 20px;
   overflow: hidden;
-  /* overflow-y: scroll; */
+}
+@media only screen and (min-width: 768px) {
+  .sup-content-wrp {
+    height: 388px;
+  }
 }
 @media only screen and (min-width: 768px) {
   .support-container {
@@ -55,9 +57,6 @@
   color: var(--white-color);
   margin-bottom: 20px;
 }
-/* .sup-company {
-  fill: none;
-} */
 .sup-comp-numb {
   line-height: 1.28;
   font-weight: 400;
@@ -83,8 +82,3 @@
   left: 50%;
   transform: translateX(-50%);
 }
-
-/* .sup-svg-use {
-  width: 5.98px;
-  height: 11.67px;
-} */
