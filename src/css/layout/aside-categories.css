@@ -1,13 +1,13 @@
 .aside-container {
 
-    max-width: 335px;
-    height: 228px;
-    overflow-y: auto;
+max-width: 335px;
+height: 228px;
+overflow-y: auto;
 }
+
 .aside-container::-webkit-scrollbar{
 width: 8px;
 height: 114px;
-
 }
 
 .aside-container::-webkit-scrollbar-thumb {
@@ -18,93 +18,61 @@ height: 114px;
 }
 
 .aside-title {
+font-size: 16px;
+letter-spacing: -0.02em;
+text-transform: uppercase;
   
-    font-family: 'DM Sans';
-    font-weight: 700;
-    font-size: 16px;
-    line-height: calc(18/16);
-
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
+color: var(--blue-color);
   
-    color: #4F2EE8;
-  
-  margin-bottom: 24px;
+margin-bottom: 24px;
 }
 
-.aside-link:hover {
-font-family: 'DM Sans';
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: calc(18/14);
-
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-
-  color: #4F2EE8;
-}
-
-.aside-item:hover{
-font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-
-  color: #4F2EE8;
-}
 
 .aside-item {
+   
+font-weight: 400;
+font-size: 16px;
 
-    font-family: 'DM Sans';
-
-    font-weight: 400;
-    font-size: 16px;
-    line-height: calc(18/16);
-      
-    letter-spacing: -0.02em;
+letter-spacing: -0.02em;
     
-    color: rgba(17, 17, 17, 0.6);
+color: rgba(17, 17, 17, 0.6);
 
-   margin-bottom: 24px;
+margin-bottom: 24px;
+}
+
+.aside-item:hover {
+font-weight: 700;
+font-size: 16px;
+color: #4F2EE8;
+letter-spacing: -0.02em;
+text-transform: uppercase;
 }
 
 @media only screen and (min-width: 768px) {
-.aside-container{
 
+.aside-container{
 height: 472px;
 }
+
 .aside-item {
-font-family: 'DM Sans';
 font-weight: 400;
 font-size: 18px;
 line-height: calc(24/18);
+
 margin-bottom: 32px;
-    }
+}
 
-/* .aside-item:hover {
-
-          
-font-weight: 700;
+.aside-item:hover {
 font-size: 18px;
-line-height: calc(24/18);
-            
-} */
+}
 .aside-title {
-width: 143px;
-height: 24px;
-    
 font-size: 18px;
 line-height: calc(24/18);
-padding-bottom: 32px;
 }
 }
 
 @media only screen and (min-width: 1440px) {
   .aside-container {
-
-height: 472px;
- 
-  }
+    height: 472px;
+}
 }
