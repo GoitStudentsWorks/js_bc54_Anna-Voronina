@@ -38,10 +38,7 @@ async function createBlock() {
         <ul class="books-list">
           ${createBook(topBooks.slice(0, markUpCount))}
         </ul>
-       <button class="category-list-button">see more</button>
-       <svg>
-       <use></use>
-       </svg>
+       <button class="category-list-button">see more</button>  
       </li>`;
 
       booksContainer.insertAdjacentHTML('beforeend', markup);
