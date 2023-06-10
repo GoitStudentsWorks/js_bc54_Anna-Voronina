@@ -26,8 +26,35 @@ const remove = key => {
   }
 };
 
+const bookStorage = load('bookList') || [];
+const addBookToStorage = book => { // функція добавляє книжки в локал сторедж, потрібно лише передати обєкт який приходить з API
+  const { title, list_name, description, author, book_image } = book;
+  const bookInfo = {
+      title,
+      list_name,
+      description,
+      author,
+      book_image,
+      amazon: book.buy_links[0].url,
+      apple: book.buy_links[1].url,
+      bookShop: book.buy_links[4].url,
+  }
+  if (bookStorage.length !== 0) {
+    bookStorage.forEach(book => {
+      if (book.title !== bookInfo.title) {
+        bookStorage.push(bookInfo);
+        save('bookList', bookStorage);
+      }
+    })
+    return;
+  }
+  bookStorage.push(bookInfo);
+  save('bookList', bookStorage);
+}
+
 export default {
   save,
   load,
   remove,
+  addBookToStorage,
 };
