@@ -1,6 +1,7 @@
 import amazonImg from "../images/shopping/amazon.png";
 import appleBook from "../images/shopping/apple.png";
 import bookShopIcon from "../images/shopping/bookshop.png";
+import sprite from "../images/sprite.svg"
 
 export default function (bookColection) {
   const markup = bookColection
@@ -57,7 +58,7 @@ export default function (bookColection) {
                     </ul>
                     <button class="shop-cart-btn" type="button">
                         <svg class="shop-cart-btn-trash" width="16" height="16">
-                            <use href="../images/sprite.svg#trash"></use>
+                            <use href="${sprite}#trash"></use>
                         </svg>
                     </button>
                 </div>

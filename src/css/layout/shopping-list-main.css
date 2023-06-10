@@ -125,3 +125,8 @@
 .amazon-icon{
     width: 32px;
 }
+
+.shop-cart-btn-trash{
+    fill: transparent;
+    stroke: white;
+}
