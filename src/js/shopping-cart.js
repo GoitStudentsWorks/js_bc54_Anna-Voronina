@@ -1,8 +1,18 @@
 export default function (bookColection) {
-    const markup = bookColection.map(book => {
-        const { title, list_name, description, author, book_image, amazon, apple, bookShop } = book;
+  const markup = bookColection
+    .map(book => {
+      const {
+        title,
+        list_name,
+        description,
+        author,
+        book_image,
+        amazon,
+        apple,
+        bookShop,
+      } = book;
 
-        return `<li class="shop-cart-container">
+      return `<li>
             <div class="shop-cart-wrap">
                 <div class="shop-image-wrapper">
                     <img class="shop-image" src="${book_image}" alt="${title}">
@@ -48,7 +58,9 @@ export default function (bookColection) {
                     </button>
                 </div>
             </div>
-        </li>`
-    }).join('')
-    return markup;
+          </div>
+        </li>`;
+    })
+    .join('');
+  return markup;
 }

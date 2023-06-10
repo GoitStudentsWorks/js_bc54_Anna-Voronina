@@ -1,5 +1,5 @@
 .home-title-decor {
-  color: var(--blue-color);
+  color: var(--light-black-color);
 }
 
 .home-title {
@@ -8,7 +8,7 @@
   line-height: calc(38 / 32);
   letter-spacing: -0.04em;
 
-  color: var(--light-black-color);
+  color: var(--blue-color);
 }
 
 .category-name {
@@ -21,44 +21,97 @@
 }
 
 .category-list {
-  width: 335px;
 }
 
-.category-list-item {
+.category-list-item:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .books-list {
+    display: flex;
+    gap: 25px;
+   
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .books-list {
+    margin-bottom: 32px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .books-list-item {
+    flex-basis: calc((100% - 2 * 25px) / 3);
+  }
 }
 
 .book-image {
   max-width: 100%;
-  height: 485px;
+  /* height: 485px; */
+  border-radius: 8px;
+  object-fit: cover;
   border-radius: 8px;
 }
 
-/* .boor-thumb {
+.book-thumb {
   position: relative;
   overflow: hidden;
 }
 
+@media only screen and (min-width: 768px) {
+  .book-thumb {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .book-overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  max-width: 100%;
-  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 70px;
   padding: 40px 32px;
   color: var(--light-black-color);
   background-color: var(--yellow-color);
   transform: translateY(100%);
-  transition: transform var(--transitio-duration) var(--timing-function);
-} */
+  transition: transform var(--transition-duration) var(--timing-function);
+}
+
+.book-overlay-text {
+  font-weight: 500;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--light-black-color);
+}
+
+.book-link:hover .book-overlay,
+.book-link:focus .book-overlay {
+  transform: translateY(0);
+}
 
 .book-card-content {
   padding-top: 14px;
   padding-bottom: 8px;
 }
 
+@media only screen and (min-width: 768px) {
+  .book-card-content {
+    padding-bottom: 0;
+  }
+}
+
 .book-title {
   margin-bottom: 4px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
   letter-spacing: -0.04em;
   text-transform: uppercase;
@@ -77,11 +130,9 @@
 
 .category-list-button {
   display: block;
-  margin-bottom: 40px;
+  min-width: 124px;
   margin-left: auto;
-  padding: 14px 28px;
-  width: 124px;
-  height: 46px;
+  padding: 12px 26px;
 
   border: 2px solid var(--blue-color);
   border-radius: 40px;
