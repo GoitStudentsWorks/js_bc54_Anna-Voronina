@@ -1,0 +1,34 @@
+.shopping-title{
+    margin-bottom: 120px;
+}
+@media only screen and (min-width: 768px) {
+    .shopping-title {
+        margin-bottom: 140px;
+    }
+}
+
+.shopping-list-text{
+    margin: 0 auto;
+    max-width: 244px;
+    margin-bottom: 14px;
+    text-align: center;
+
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: calc(18/14);
+
+    color: rgba(0, 0, 0, 0.6);
+}
+@media only screen and (min-width: 768px) {
+    .shopping-list-text {
+        max-width: 349px;
+        margin-bottom: 20px;
+
+        font-size: 18px;
+        line-height: calc(24/18);
+    }
+}
+
+.shopping-list-image{
+    margin: 0 auto;
+}
