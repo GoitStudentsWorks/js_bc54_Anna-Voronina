@@ -1,5 +1,20 @@
+@import '../../../node_modules/modern-normalize/modern-normalize.css';
+
 :root {
+  /* Fonts */
   --main-font: 'DM Sans', sans-serif;
+  /* Colors */
+  --black-color: #000000;
+  --light-black-color: #111111;
+  --white-color: #ffffff;
+  --blue-color: #4f2ee8;
+  --dark-grey-color: #202024;
+  --light-grey-color: #f6f6f6;
+  --grey-text-color: #b4afaf;
+  --yellow-color: #eac645;
+  /* Transition */
+  --transition-duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,
@@ -38,6 +53,13 @@ button {
 
 a {
   text-decoration: none;
+}
+
+body {
+  font-family: var(--main-font);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: calc(18 / 16);
 }
 
 .aside-wrapper {
