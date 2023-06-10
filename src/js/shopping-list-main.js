@@ -13,13 +13,13 @@ const listContainer = document.querySelector('.js-shopping-list')
 const bookStorage = Storage.load('bookList')
 
 const shopContainer = async () => {
-    booksApi.bookId = "643282b2e85766588626a0e2";
+    booksApi.bookId = "643282b1e85766588626a080";
     const { data } = await booksApi.fetchBookById();
     Storage.addBookToStorage(data)
 
     if (bookStorage) {
         listContainer.innerHTML = `
-        <ul>
+        <ul class="shop-cart-list">
             ${getShoppingCartMarkup(bookStorage)}
         </ul>
         `
