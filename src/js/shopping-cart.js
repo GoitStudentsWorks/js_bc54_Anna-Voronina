@@ -27,8 +27,8 @@ export default function (bookColection) {
                             <a href="${amazon}" target="_blank" rel="noopener noreferrer"></a>
                                 <picture>
                                     <!-- <source srcset="./images/modal-window/amazon.webp" type="image/webp" /> -->
-                                    <source srcset="./images/shopping/amazon.png" type="image/png" />
-                                    <img class="amazon-icon" src="./images/shopping/amazon.png" alt="Amazon logo" />
+                                    <source srcset="../images/shopping/amazon.png" type="image/png" />
+                                    <img class="amazon-icon" src="../images/shopping/amazon.png" alt="Amazon logo" />
                                 </picture>
                             </a>    
                         </li>
@@ -36,8 +36,8 @@ export default function (bookColection) {
                             <a href="${apple}" target="_blank" rel="noopener noreferrer">
                                 <picture>
                                     <!-- <source srcset="./images/modal-window/amazon.webp" type="image/webp" /> -->
-                                    <source srcset="./images/shopping/apple.png" type="image/png" />
-                                    <img class="amazon-icon" src="./images/shopping/apple.png" alt="Apple book logo" />
+                                    <source srcset="../images/shopping/apple.png" type="image/png" />
+                                    <img class="amazon-icon" src="../images/shopping/apple.png" alt="Apple book logo" />
                                 </picture>
                             </a>
                         </li>
@@ -45,15 +45,15 @@ export default function (bookColection) {
                             <a href="${bookShop}" target="_blank" rel="noopener noreferrer">
                                 <picture>
                                     <!-- <source srcset="./images/modal-window/amazon.webp" type="image/webp" /> -->
-                                    <source srcset="./images/shopping/bookshop.png" type="image/png" />
-                                    <img class="amazon-icon" src="./images/shopping/bookshop.png" alt="Book shop logo" />
+                                    <source srcset="../images/shopping/bookshop.png" type="image/png" />
+                                    <img class="amazon-icon" src="../images/shopping/bookshop.png" alt="Book shop logo" />
                                 </picture>
                             </a>
                         </li>
                     </ul>
                     <button class="shop-cart-btn" type="button">
                         <svg class="shop-cart-btn-trash" width="16" height="16">
-                            <use href="./sprite.svg#trash"></use>
+                            <use href="../images/sprite.svg#trash"></use>
                         </svg>
                     </button>
                 </div>
