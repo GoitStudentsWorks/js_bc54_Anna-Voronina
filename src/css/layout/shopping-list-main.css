@@ -121,3 +121,7 @@
     background-color: var(--blue-color);
     border-radius: 50%;
 }
+
+.amazon-icon{
+    width: 32px;
+}
