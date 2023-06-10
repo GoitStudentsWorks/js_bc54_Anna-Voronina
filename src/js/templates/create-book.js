@@ -1,9 +1,9 @@
 export default function createBook(bookInfo) {
   const markup = bookInfo
     .map(book => {
-      const { book_image, description, title, author } = book;
+      const { book_image, description, title, author, _id } = book;
       return `<li class="books-list-item">
-                 <a class="book-link" href="">
+                 <a class="book-link" href="" data-id="${_id}">
                     <div class="book-thumb">
                       <img class="book-image" src="${book_image}" alt="${description}" />
 
