@@ -62,7 +62,13 @@
 }
 
 .x-close {
-  stroke: black;
+  stroke: var(--light-black-color);
+  transition: stroke var(--transition-duration) var(--timing-function);
+}
+
+.x-close:hover,
+.x-close:focus {
+  stroke: var(--blue-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -150,6 +156,13 @@
 }
 
 .modal-icon {
+ mix-blend-mode: luminosity;
+ transition: filter var(--transition-duration) var(--timing-function);
+}
+
+.modal-icon:hover,
+.modal-icon:focus {
+filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 }
 
 .modal-btn {
@@ -164,6 +177,12 @@
   margin: 0 auto 8px;
   border: 2px solid var(--blue-color);
   border-radius: 40px;
+  transition: background-color var(--transition-duration) var(--timing-function);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+background-color: var(--blue-color);
 }
 
 @media screen and (min-width: 768px) {
