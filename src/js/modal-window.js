@@ -1,5 +1,12 @@
+
+
+const a = document.querySelector('.books-list-item');
+console.log(a);
+
+
+
+
 const container = document.querySelector('.category-list');
-const book = document.querySelector('.category-list-item');
 const modal = document.querySelector('.backdrop');
 const closeBtn = document.querySelector('.modal-close-btn');
 const modalShoppingBtn = document.querySelector('.modal-btn');
@@ -9,8 +16,10 @@ container.addEventListener('click', onOpenModalWindow);
 
 function onOpenModalWindow(event){
     event.preventDefault()
-
-if(event.target.nodeName !== 'IMG'){
+console.log(event.target);
+console.log(event.currentTarget);
+const evt = event.target.nodeName;
+if(evt !== 'IMG'){
     return
 }
 
