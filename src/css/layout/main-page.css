@@ -24,6 +24,14 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .category-list-click {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 24px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
   .top-list-item {
     margin-bottom: 40px;
   }
@@ -48,9 +56,21 @@
   }
 }
 
+@media only screen and (max-width: 767px) {
+  .books-list-item:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .books-list-item {
     flex-basis: calc((100% - 2 * 25px) / 3);
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .books-list-item {
+    flex-basis: calc((100% - 4 * 24px) / 5);
   }
 }
 
