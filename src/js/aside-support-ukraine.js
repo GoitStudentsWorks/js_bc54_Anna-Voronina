@@ -15,7 +15,7 @@ supUkrBtn.addEventListener('click', supUkrScroll);
 const supportCompaniesContainer = document.querySelector('.sup-content-wrp');
 
 const supportCompanyElements = supUkrFonds.map((fund, index) => {
-  const supportCompany = document.createElement('div');
+  const supportCompany = document.createElement('li');
   supportCompany.className = 'support-company';
 
   const supCompNumb = document.createElement('p');
@@ -48,30 +48,3 @@ const supportCompanyElements = supUkrFonds.map((fund, index) => {
 supportCompanyElements.forEach(element => {
   supportCompaniesContainer.appendChild(element);
 });
-
-//       image.style.height = '32px';
-// else {
-//       link.textContent = fund.title;
-//     }
-
-// -------------------old var--------------------------
-
-// const makeFondsList = ({ title, url, img }) => {
-//   return `<a href="${url}">
-//             <img
-//               class="sup-company"
-//               style="height: 32px"
-//               src="${img}"
-//               alt="${title}"
-//             />
-//           </a>`;
-// };
-
-// const makeFondsArr = supUkrFonds.map(fondData => {
-//   return makeFondsList(fondData);
-// });
-
-// <div class="support-company">
-//   <p class="sup-comp-numb">06</p>
-//   <!-- <a href=""><img style="height: 32px" src="" alt="" /></a> -->
-// </div>

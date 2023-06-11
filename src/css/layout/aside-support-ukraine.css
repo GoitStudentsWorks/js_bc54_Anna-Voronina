@@ -58,6 +58,7 @@
   fill: currentColor;
 }
 .support-company {
+  width: 150px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -69,6 +70,7 @@
   color: var(--white-color);
 }
 .sup-company-img {
+  object-fit: contain;
   height: 32px;
 }
 .sup-ukr-scroll-btn {
