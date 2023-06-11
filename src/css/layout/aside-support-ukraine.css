@@ -6,19 +6,25 @@
     #ffffff 100%
   );
   border-radius: 17px;
-  padding-bottom: 68px;
+  width: 335px;
+  height: 352px;
 }
 .sup-content-wrp {
-  width: 335px;
-  height: 284px;
-  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 188px;
   padding-left: 40px;
-  padding-bottom: 20px;
   overflow: hidden;
 }
 @media only screen and (min-width: 768px) {
   .sup-content-wrp {
-    height: 388px;
+    height: 292px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .sup-content-wrp {
+    height: 292px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -39,6 +45,9 @@
   display: flex;
   gap: 12px;
   margin-bottom: 40px;
+  padding-left: 40px;
+  padding-left: 40px;
+  padding-top: 24px;
 }
 .sup-ukr-text {
   font-style: normal;
@@ -55,7 +64,7 @@
   align-items: center;
   gap: 16px;
   color: var(--white-color);
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 .sup-comp-numb {
   line-height: 1.28;
