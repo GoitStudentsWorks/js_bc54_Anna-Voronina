@@ -4,3 +4,4 @@ import './burger-menu.js';
 import './header.js';
 import './main-page.js';
 import './modal-window.js';
+// import './shopping-list.js';
