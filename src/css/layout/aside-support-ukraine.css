@@ -33,14 +33,12 @@
     height: 472px;
   }
 }
-
 @media only screen and (min-width: 1440px) {
   .support-container {
     width: 356px;
     height: 490px;
   }
 }
-
 .sup-ukr-header {
   display: flex;
   gap: 12px;
@@ -60,16 +58,20 @@
   fill: currentColor;
 }
 .support-company {
+  width: 150px;
   display: flex;
   align-items: center;
   gap: 16px;
   color: var(--white-color);
-  /* margin-bottom: 20px; */
 }
 .sup-comp-numb {
   line-height: 1.28;
   font-weight: 400;
   color: var(--white-color);
+}
+.sup-company-img {
+  object-fit: contain;
+  height: 32px;
 }
 .sup-ukr-scroll-btn {
   width: 32px;
@@ -77,7 +79,6 @@
   background-color: var(--white-color);
   border-radius: 50%;
 }
-
 .sub-btn-svg {
   color: var(--blue-color);
   fill: currentColor;
