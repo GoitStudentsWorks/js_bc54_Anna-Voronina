@@ -33,7 +33,7 @@ async function createBlock() {
         markUpCount = 5;
       }
 
-      const markup = `<li class="category-list-item">
+      const markup = `<li class="category-list-item top-list-item">
         <p class="category-name">${topBooks[0].list_name}</p>
         <ul class="books-list">
           ${createBook(topBooks.slice(0, markUpCount))}
