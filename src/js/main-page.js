@@ -69,6 +69,7 @@ async function onSeeMoreBtnClick(event) {
     title.innerHTML = divideTitleElements(name);
     booksContainer.classList.add('category-list-click');
     booksContainer.innerHTML = createBook(data);
+    addActiveClassToCategoryListItem(name);
   } catch (error) {
     console.log(error);
   }
@@ -82,4 +83,16 @@ function divideTitleElements(categoryName) {
   const secondHalf = words.slice(halfIndex).join(' ');
 
   return `${firstHalf} <span class="home-title-decor">${secondHalf}</span>`;
+}
+
+function addActiveClassToCategoryListItem(name) {
+  const asideCategoryItems = document.querySelectorAll('.aside-item');
+  const allCategoriesTitle = document.querySelector('.aside-title');
+
+  asideCategoryItems.forEach(asideCategoryItem => {
+    if (name === asideCategoryItem.textContent) {
+      allCategoriesTitle.classList.toggle('active');
+      asideCategoryItem.classList.toggle('active');
+    }
+  });
 }
