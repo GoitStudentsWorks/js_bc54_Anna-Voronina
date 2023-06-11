@@ -156,7 +156,6 @@
 }
 
 .modal-icon {
-  mix-blend-mode: luminosity;
   transition: filter var(--transition-duration) var(--timing-function);
 }
 

@@ -1,4 +1,12 @@
-import localStorage from './local-storage.js'
+// -----------images----------
+import amazon from '../images/shopping/amazon.webp';
+import amazonpng from '../images/shopping/amazon.png';
+import apple from '../images/shopping/apple.webp';
+import applepng from '../images/shopping/apple.png';
+import bookshop from '../images/shopping/bookshop.webp';
+import bookshoppng from '../images/shopping/bookshop.png';
+// -----------------------------
+import localStorage from './local-storage.js';
 import { SwaggerAPI } from './swagger-api.js';
 const fetchAPI = new SwaggerAPI();
 
@@ -7,9 +15,9 @@ const closeBtn = document.querySelector('.modal-close-btn');
 const modalShoppingBtn = document.querySelector('.modal-btn');
 const modalInfo = document.querySelector('.modal-info');
 const container = document.querySelector('.modal-book');
-const a = [];
+let bookApi = {};
 
-export default function onOpenModal() {
+export default function addListener() {
   const bookContainer = document.querySelectorAll('.book-link');
   bookContainer.forEach(book =>
     book.addEventListener('click', onOpenModalWindow)
@@ -20,57 +28,69 @@ async function onOpenModalWindow(event) {
   event.preventDefault();
   document.body.style.overflow = 'hidden';
   backdrop.classList.toggle('is-hidden');
-
-try{
+backdrop.addEventListener('click', onBackdrop);
+window.addEventListener('keydown', onEsc);
+closeBtn.addEventListener('click', onCloseModalWindow);
+  try {
     fetchAPI.bookId = event.currentTarget.dataset.id;
-    const response = await fetchAPI.fetchBookById();
-    createBookMarkup(response.data);
-    createShoppingBtn(response.data);
-
-    closeBtn.addEventListener('click', onCloseModalWindow)
-    modalShoppingBtn.addEventListener('click', onToggleShoppingList);
-} catch{err => console.log(err)}
+    const resp = await fetchAPI.fetchBookById();
+    bookApi = resp.data;
+    createBookMarkup(bookApi);
+    createShoppingBtn(bookApi);
+    modalShoppingBtn.addEventListener('click', onUpdateShopList);
+  } catch {
+    err => console.log(err);
+  }
 }
 
-function onCloseModalWindow() {
-  backdrop.classList.toggle('is-hidden');
-  document.body.style.overflow = 'visible';
+ function createShoppingBtn(data) {
+    const storage =  localStorage.load('bookList');
+    console.log(storage);
+    if (!storage || storage.length === 0) {
+      addBtn();
+      return;
+    }
+    for (book of storage) {
+      if (book.title === data.title) {
+        removeBtn();
+        return;
+      } else {
+        addBtn();
+      }}
 }
 
-function createShoppingBtn(book){
-  console.log(book);
-    const storage = localStorage.load();
-    console.log(localStorage.load());
-    storage.forEach(book => {if(bookId === book.id){
-      modalShoppingBtn.textContent = 'remove from the shopping list'}
-    })
+function onUpdateShopList() {
+  const storage = localStorage.load('bookList');
+      const title = document.querySelector('.modal-book-name').textContent;
+    if
+     (modalShoppingBtn.textContent === 'add to shopping list') {
+      localStorage.addBookToStorage(bookApi);
+      removeBtn();
+    }
+     else {
+       storage.forEach((book, ind, arr) => {
+        if (book.title === title) {
+          return arr.splice(ind, 1);
+        }
+      });
+
+      localStorage.save('bookList', storage)
+      addBtn();
+    }
 }
 
-function onToggleShoppingList() {
-  const d = modalShoppingBtn.previousElementSibling
-
-  const object = {
- name: d.querySelector('.modal-book-name').textContent,
- 
-};
-
-a.push(object)
-// console.log(a);
-localStorage.save('bookList', a);
-
-
-  // if (modalShoppingBtn.textContent === 'add to shopping list') {
-  //   modalShoppingBtn.textContent = 'remove from the shopping list';
-  //   modalInfo.style.display = "block";
-  //   // addBookToStorage()
-  // } else {
-  //   modalShoppingBtn.textContent = 'add to shopping list';
-  //   modalInfo.style.display = 'none';
-  // }
+function addBtn() {
+  modalShoppingBtn.textContent = 'add to shopping list';
+  modalInfo.style.display = 'none';
 }
 
-function  createBookMarkup(book){
-const markup = `<img
+function removeBtn() {
+  modalShoppingBtn.textContent = 'remove from the shopping list';
+  modalInfo.style.display = 'block';
+}
+
+function createBookMarkup(book) {
+  const markup = `<img
 class="modal-img"
 src=${book.book_image}
 alt="Book cover"
@@ -78,55 +98,75 @@ alt="Book cover"
 <div class="modal-info-container">
 <p class="modal-book-name">${book.title}</p>
 <p class="modal-book-author">${book.author}</p>
+<p class="modal-list-name is-hidden">${book.list_name}</p>
 <p class="modal-book-desc">${book.description}
 </p>
 <div class="modal-icons-container">
   <a href="${book.buy_links[0].url}" target="_blank" rel="noopener noreferrer"
     ><picture class="modal-icon">
       <source
-        srcset="images/shopping/amazon.webp"
+        srcset="${amazon}"
         type="image/webp"
       />
       <source
-        srcset="images/shopping/amazon.png"
+        srcset="${amazonpng}"
         type="image/png"
       />
       <img
-        src="images/shopping/amazon.png"
+        src="${amazonpng}"
         alt="Amazon"
       /> </picture
   ></a>
   <a href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer"
     ><picture class="modal-icon">
       <source
-        srcset="./images/shopping/apple.webp"
+        srcset="${apple}"
         type="image/webp"
       />
       <source
-        srcset="./images/shopping/apple.png"
+        srcset="${applepng}"
         type="image/png"
       />
       <img
-        src="./images/shopping/apple.png"
+        src="${applepng}"
         alt="Apple Books"
       /> </picture
   ></a>
   <a href="${book.buy_links[4].url}" target="_blank" rel="noopener noreferrer"
     ><picture class="modal-icon">
       <source
-        srcset="../images/shopping/bookshop.webp"
+        srcset="${bookshop}"
         type="image/webp"
       />
       <source
-        srcset="../images/shopping/bookshop.png"
+        srcset="${bookshoppng}"
         type="image/png"
       />
       <img
-        src="../images/shopping/bookshop.png"
+        src="${bookshoppng}"
         alt="Bookshop"
       /></picture
   ></a>
 </div>
-</div>`
-container.innerHTML = markup;
+</div>`;
+  container.innerHTML = markup;
+}
+
+function onEsc(event) {
+  if (event.key === "Escape"){
+    onCloseModalWindow()
+  }
+}
+
+function onBackdrop(event){
+  if(event.target === backdrop){
+    onCloseModalWindow()}
+}
+
+function onCloseModalWindow() {
+  backdrop.classList.toggle('is-hidden');
+  document.body.style.overflow = 'visible';
+  backdrop.removeEventListener('click', onBackdrop);
+  window.removeEventListener('keydown', onEsc);
+  closeBtn.removeEventListener('click', onCloseModalWindow);
 }
