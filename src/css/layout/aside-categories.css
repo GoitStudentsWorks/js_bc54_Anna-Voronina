@@ -4,6 +4,7 @@
   overflow-y: auto;
 }
 
+
 @media only screen and (max-width: 767px) {
   .aside-container {
     margin-bottom: 40px;
@@ -35,33 +36,97 @@
 }
 
 .aside-title {
+
+  font-weight: 400;
   font-size: 16px;
   letter-spacing: -0.02em;
-  text-transform: uppercase;
-
-  color: var(--blue-color);
-
+  color: rgba(17, 17, 17, 0.6);
   margin-bottom: 24px;
+
+    transition: var(--anim-hover);
+
+    }
+.aside-title:hover,
+.aside-title:focus {
+font-weight: 700;
+  font-size: 18px;
+  line-height: calc(24/18);
+  color: var(--blue-color);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  transition: transform var(--transition-duration) var(--timing-function);
+
+}
+
+@media only screen and (min-width: 768px) {
+  .aside-title {
+    font-size: 18px;
+    line-height: calc(24/18)
+  }
+}
+.aside-title.active {
+
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--blue-color);
+  margin-bottom: 24px;
+
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 768px) {
+  .aside-title.active {
+    font-size: 18px;
+    line-height: calc(24/18);
+  }
 }
 
 .aside-item {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: calc(24/18);
+  padding-right: 20px;
 
   letter-spacing: -0.02em;
 
   color: rgba(17, 17, 17, 0.6);
 
   margin-bottom: 24px;
+
+  transition: var(--anim-hover);
+
 }
 
-.aside-item:hover {
+.aside-item:hover,
+ .aside-item:focus{
+  
   font-weight: 700;
-  font-size: 16px;
-  color: #4f2ee8;
+  font-size: 18px;
+  line-height: calc(24/18);
+  color: var(--blue-color);
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  transition: transform var(--transition-duration) var(--timing-function);
 }
+
+.active {
+      font-weight: 700;
+      font-size: 16px;
+     
+      color: var(--blue-color);
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+}
+@media only screen and (min-width: 768px) {
+  .active{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: calc(24/18);
+   
+  }
+}
+
+
 @media only screen and (max-width: 767px) {
   .categories-item {
     display: flex;
@@ -101,7 +166,7 @@
   }
 
   .aside-item {
-    font-weight: 400;
+
     font-size: 18px;
     line-height: calc(24 / 18);
 

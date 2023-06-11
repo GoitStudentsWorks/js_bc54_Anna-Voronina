@@ -8,7 +8,12 @@ export default function createCategoriesMarkup(bookInfo) {
 
 <li class="category-list-item">
 <a class="book-link" href="">
+<div class="book-thumb">
 <img class="book-image" src="${book_image}" alt="${description}" />
+<div class="book-overlay">
+<p class="book-overlay-text">quick view</p>
+</div>
+</div>
 <div class="book-card-content">
 <h2 class="book-title">${title}</h2>
 <p class="book-author">${author}</p>
