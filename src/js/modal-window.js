@@ -1,3 +1,4 @@
+import localStorage from './local-storage.js'
 import { SwaggerAPI } from './swagger-api.js';
 const swagger = new SwaggerAPI();
 
@@ -5,7 +6,9 @@ const backdrop = document.querySelector('.backdrop');
 const closeBtn = document.querySelector('.modal-close-btn');
 const modalShoppingBtn = document.querySelector('.modal-btn');
 const modalInfo = document.querySelector('.modal-info');
-const container = document.querySelector('.modal-book')
+const container = document.querySelector('.modal-book');
+console.log(1);
+const a = [];
 
 export default function onOpenModal() {
   const bookContainer = document.querySelectorAll('.book-link');
@@ -17,20 +20,21 @@ export default function onOpenModal() {
 
 async function onOpenModalWindow(event) {
   event.preventDefault();
-
   document.body.style.overflow = 'hidden';
-
   backdrop.classList.toggle('is-hidden');
-  closeBtn.addEventListener('click', onCloseModalWindow);
-  modalShoppingBtn.addEventListener('click', onToggleShoppingList);
+
 try{
+
     swagger.bookId = event.currentTarget.dataset.id;
-
     const response = await swagger.fetchBookById();
-    createBookMarkup(response.data)
-    console.log(response.data);
-}
-
+    createBookMarkup(response.data);
+    // const storage = localStorage.load();
+    // storage.forEach(book => {if(bookId === book.id){
+    //   modalShoppingBtn.textContent = 'remove from the shopping list'}
+    // })
+    closeBtn.addEventListener('click', onCloseModalWindow)
+    modalShoppingBtn.addEventListener('click', onToggleShoppingList);
+} catch{err => console.log(err)}
 }
 
 function onCloseModalWindow() {
@@ -39,13 +43,26 @@ function onCloseModalWindow() {
 }
 
 function onToggleShoppingList() {
-  if (modalShoppingBtn.textContent === 'add to shopping list') {
-    modalShoppingBtn.textContent = 'remove from the shopping list';
-    modalInfo.style.display = "none";
-  } else {
-    modalShoppingBtn.textContent = 'add to shopping list';
-    modalInfo.style.display = 'block';
-  }
+  const d = modalShoppingBtn.previousElementSibling
+
+  const object = {
+ name: d.querySelector('.modal-book-name').textContent,
+ 
+};
+
+a.push(object)
+console.log(a);
+localStorage.save('bookList', a);
+
+
+  // if (modalShoppingBtn.textContent === 'add to shopping list') {
+  //   modalShoppingBtn.textContent = 'remove from the shopping list';
+  //   modalInfo.style.display = "block";
+  //   // addBookToStorage()
+  // } else {
+  //   modalShoppingBtn.textContent = 'add to shopping list';
+  //   modalInfo.style.display = 'none';
+  // }
 }
 
 function  createBookMarkup(book){
@@ -57,56 +74,55 @@ alt="Book cover"
 <div class="modal-info-container">
 <p class="modal-book-name">${book.title}</p>
 <p class="modal-book-author">${book.author}</p>
-<p class="modal-book-descr">${book.description}
+<p class="modal-book-desc">${book.description}
 </p>
 <div class="modal-icons-container">
   <a href="${book.buy_links[0].url}" target="_blank" rel="noopener noreferrer"
     ><picture class="modal-icon">
       <source
-        srcset="images/modal-window/amazon.webp"
+        srcset="images/shopping/amazon.webp"
         type="image/webp"
       />
       <source
-        srcset="./images/modal-window/amazon.png"
+        srcset="images/shopping/amazon.png"
         type="image/png"
       />
       <img
-        src="./images/modal-window/amazon.png"
+        src="images/shopping/amazon.png"
         alt="Amazon"
       /> </picture
   ></a>
   <a href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer"
     ><picture class="modal-icon">
       <source
-        srcset="./images/modal-window/open-book.webp"
+        srcset="./images/shopping/apple.webp"
         type="image/webp"
       />
       <source
-        srcset="./images/modal-window/open-book.png"
+        srcset="./images/shopping/apple.png"
         type="image/png"
       />
       <img
-        src="./images/modal-window/open-book.png"
+        src="./images/shopping/apple.png"
         alt="Apple Books"
       /> </picture
   ></a>
-  <a href="${book.buy_links[2].url}" target="_blank" rel="noopener noreferrer"
+  <a href="${book.buy_links[4].url}" target="_blank" rel="noopener noreferrer"
     ><picture class="modal-icon">
       <source
-        srcset="./images/modal-window/books.webp"
+        srcset="../images/shopping/bookshop.webp"
         type="image/webp"
       />
       <source
-        srcset="./images/modal-window/books.png"
+        srcset="../images/shopping/bookshop.png"
         type="image/png"
       />
       <img
-        src="./images/modal-window/books.png"
-        alt="Amazon"
+        src="../images/shopping/bookshop.png"
+        alt="Bookshop"
       /></picture
   ></a>
 </div>
 </div>`
-console.log(markup);
 container.innerHTML = markup;
 }
