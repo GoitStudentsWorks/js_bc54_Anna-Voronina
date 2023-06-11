@@ -1,0 +1,30 @@
+.dark-theme {
+  background-color: var(--light-black-color);
+  color: white;
+}
+
+.dark-theme .header-container {
+  background-color: var(--black-color);
+}
+
+.dark-theme .bookshelf-logo {
+  fill: var(--white-color);
+}
+
+.dark-theme .menu-burger-icon-open {
+  stroke: var(--white-color);
+}
+
+.dark-theme .header-nav-link {
+  color: var(--white-color);
+  fill: var(--white-color);
+}
+
+.dark-theme .current {
+  color: var(--black-color);
+}
+
+.dark-theme .header-container {
+  border: 1.5px solid var(--white-color);
+  border-radius: 0px 0px 8px 8px;
+}
