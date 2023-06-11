@@ -15,8 +15,6 @@
   /* Transition */
   --transition-duration: 250ms;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-
 }
 
 h1,
@@ -99,5 +97,11 @@ body {
   .main-content {
     padding-bottom: 72px;
     flex-grow: 1;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .shopping-list-main-content {
+    padding-bottom: 40px;
   }
 }
