@@ -1,18 +1,16 @@
 import localStorage from './local-storage.js'
 import { SwaggerAPI } from './swagger-api.js';
-const swagger = new SwaggerAPI();
+const fetchAPI = new SwaggerAPI();
 
 const backdrop = document.querySelector('.backdrop');
 const closeBtn = document.querySelector('.modal-close-btn');
 const modalShoppingBtn = document.querySelector('.modal-btn');
 const modalInfo = document.querySelector('.modal-info');
 const container = document.querySelector('.modal-book');
-console.log(1);
 const a = [];
 
 export default function onOpenModal() {
   const bookContainer = document.querySelectorAll('.book-link');
-
   bookContainer.forEach(book =>
     book.addEventListener('click', onOpenModalWindow)
   );
@@ -24,14 +22,11 @@ async function onOpenModalWindow(event) {
   backdrop.classList.toggle('is-hidden');
 
 try{
-
-    swagger.bookId = event.currentTarget.dataset.id;
-    const response = await swagger.fetchBookById();
+    fetchAPI.bookId = event.currentTarget.dataset.id;
+    const response = await fetchAPI.fetchBookById();
     createBookMarkup(response.data);
-    // const storage = localStorage.load();
-    // storage.forEach(book => {if(bookId === book.id){
-    //   modalShoppingBtn.textContent = 'remove from the shopping list'}
-    // })
+    createShoppingBtn(response.data);
+
     closeBtn.addEventListener('click', onCloseModalWindow)
     modalShoppingBtn.addEventListener('click', onToggleShoppingList);
 } catch{err => console.log(err)}
@@ -40,6 +35,15 @@ try{
 function onCloseModalWindow() {
   backdrop.classList.toggle('is-hidden');
   document.body.style.overflow = 'visible';
+}
+
+function createShoppingBtn(book){
+  console.log(book);
+    const storage = localStorage.load();
+    console.log(localStorage.load());
+    storage.forEach(book => {if(bookId === book.id){
+      modalShoppingBtn.textContent = 'remove from the shopping list'}
+    })
 }
 
 function onToggleShoppingList() {
@@ -51,7 +55,7 @@ function onToggleShoppingList() {
 };
 
 a.push(object)
-console.log(a);
+// console.log(a);
 localStorage.save('bookList', a);
 
 
