@@ -40,12 +40,11 @@ const addBookToStorage = book => { // функція добавляє книжк
       bookShop: book.buy_links[4].url,
   }
   if (bookStorage.length !== 0) {
-    bookStorage.forEach(book => {
-      if (book.title !== bookInfo.title) {
-        bookStorage.push(bookInfo);
-        save('bookList', bookStorage);
-      }
-    })
+    const bookInStorage = bookStorage.find(book => book.title === bookInfo.title);
+    if (!bookInStorage) {
+      bookStorage.push(bookInfo);
+      save('bookList', bookStorage);
+    }
     return;
   }
   bookStorage.push(bookInfo);
