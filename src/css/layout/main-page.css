@@ -1,5 +1,7 @@
 .home-title-decor {
-  color: var(--light-black-color);
+color: var(--light-black-color);
+ 
+  
 }
 
 .home-title {
@@ -7,8 +9,8 @@
   font-size: 32px;
   line-height: calc(38 / 32);
   letter-spacing: -0.04em;
+color: var(--blue-color);
 
-  color: var(--blue-color);
 }
 
 .category-name {

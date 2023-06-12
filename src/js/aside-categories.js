@@ -29,13 +29,13 @@ let activeCategoryLink = null;
 const onCategoriesLinkClick = event => {
   const value = event.target.textContent;
   swaggerCategoriesApi.categoryName = value;
-  
-   if (activeCategoryLink) {
-    activeCategoryLink.classList.remove('active'); 
-  };
-  
-  activeCategoryLink = event.target
-  activeCategoryLink.classList.add('active'); 
+
+  if (activeCategoryLink) {
+    activeCategoryLink.classList.remove('active');
+  }
+
+  activeCategoryLink = event.target;
+  activeCategoryLink.classList.add('active');
   categoriesTitle.classList.remove('active');
 
   const createMarkupCategories = async () => {
@@ -44,22 +44,22 @@ const onCategoriesLinkClick = event => {
       console.log(data);
 
       const listName = data[0].list_name;
-  
+
       const words = listName.split(' ');
-      const halfIndex = words.length / 2;
+      const lastWord = words[words.length - 1];
+      const otherWords = words.slice(0, words.length - 1).join(' ');
 
-      const firstHalf = words.slice(0, halfIndex).join(' ');
-      const secondHalf = words.slice(halfIndex).join(' ');
-
-      const decoratedListName = `${firstHalf} <span class="categories-title-decor">${secondHalf}</span>`;
+      const decoratedListName = `${otherWords} <span class="categories-title-decor">${lastWord}</span>`;
       renderingCategories.innerHTML = `<h1 class="categories-title">${decoratedListName}</h1> <ul class="categories-item">${createCategoriesMarkup(
         data
       )}</ul>`;
       addListener()
     } catch (error) {
       console.log(error);
-    };
+    }
   };
-  createMarkupCategories()
-}
+
+  createMarkupCategories();
+};
+
 categoriesList.addEventListener('click', onCategoriesLinkClick);

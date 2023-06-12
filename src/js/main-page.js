@@ -78,14 +78,15 @@ async function onSeeMoreBtnClick(event) {
 }
 
 function divideTitleElements(categoryName) {
+
+
   const words = categoryName.split(' ');
-  const halfIndex = words.length / 2;
+  const lastWord = words[words.length - 1];
+  const otherWords = words.slice(0, words.length - 1).join(' ');
 
-  const firstHalf = words.slice(0, halfIndex).join(' ');
-  const secondHalf = words.slice(halfIndex).join(' ');
-
-  return `${firstHalf} <span class="home-title-decor">${secondHalf}</span>`;
+  return `<span class="home-title-decor">${otherWords} </span>${lastWord}`;
 }
+
 
 function addActiveClassToCategoryListItem(name) {
   const asideCategoryItems = document.querySelectorAll('.aside-item');
