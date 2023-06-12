@@ -32,17 +32,19 @@
 .input-img-mail {
   position: absolute;
   display: block;
-  top: 190px;
+  top: 192px;
   right: 72px;
   stroke: var(--light-black-color);
+  fill: transparent;
 }
 
 .input-img-pass {
   position: absolute;
   display: block;
-  top: 282px;
+  top: 288px;
   right: 72px;
-  /* stroke: var(--light-black-color); */
+  stroke: var(--light-black-color);
+  fill: transparent;
 }
 
 .authorization-input {
