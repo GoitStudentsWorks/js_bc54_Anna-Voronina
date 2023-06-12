@@ -29,6 +29,8 @@ html.light {
   --aside-text-color: rgba(17, 17, 17, 0.6);
   --aside-hover-text-color: #4f2ee8;
   --aside-scroll-color: #e0e0e0;
+  /* Shopping list */
+  --shopping-list-text-color: rgba(0, 0, 0, 0.6);
   /* Book modal window */
   --modal-bg-color: #ffffff;
   --modal-desr-text-color: rgba(17, 17, 17, 0.5);
@@ -51,6 +53,8 @@ html.dark {
   --aside-text-color: rgba(255, 255, 255, 0.6);
   --aside-hover-text-color: #eac645;
   --aside-scroll-color: rgba(17, 17, 17, 0.6);
+  /* Shopping list */
+  --shopping-list-text-color: rgba(255, 255, 255, 0.6);
   /* Book modal window */
   --modal-bg-color: #202024;
   --modal-desr-text-color: rgba(255, 255, 255, 0.5);

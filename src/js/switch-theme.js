@@ -1,41 +1,38 @@
 import storage from './local-storage.js';
 
 const switcher = document.querySelector('.js-themes');
+const htmlEl = document.documentElement;
 
-console.log(switcher);
+initTheme();
 
 switcher.addEventListener('change', onSwitcherChange);
 
 function onSwitcherChange(event) {
   if (event.target.nodeName === 'INPUT') {
     resetTheme();
-    // const htmlEl = document.documentElement;
-    // htmlEl.classList.toggle('light');
-    // htmlEl.classList.toggle('dark');
   }
 }
 
 function resetTheme() {
   if (switcher.children.switcher_checkbox.checked) {
-    const htmlEl = document.documentElement;
-    htmlEl.classList.toggle('light');
-    htmlEl.classList.toggle('dark');
+    themeClassToggle();
     storage.save('theme', 'dark');
   } else {
-    htmlEl.classList.toggle('light');
-    htmlEl.classList.toggle('dark');
+    themeClassToggle();
     storage.remove('theme');
   }
 }
 
 function initTheme() {
   const storageData = storage.load('theme');
-  console.log(storageData);
 
   if (storageData === 'dark') {
-    htmlEl.classList.toggle('light');
-    htmlEl.classList.toggle('dark');
+    switcher.children.switcher_checkbox.checked = true;
+    themeClassToggle();
   }
 }
 
-initTheme();
+function themeClassToggle() {
+  htmlEl.classList.toggle('light');
+  htmlEl.classList.toggle('dark');
+}
