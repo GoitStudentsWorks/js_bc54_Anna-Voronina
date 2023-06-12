@@ -35,6 +35,7 @@ closeBtn.addEventListener('click', onCloseModalWindow);
     fetchAPI.bookId = event.currentTarget.dataset.id;
     const resp = await fetchAPI.fetchBookById();
     bookApi = resp.data;
+    console.log(bookApi);
     createBookMarkup(bookApi);
     createShoppingBtn(bookApi);
     modalShoppingBtn.addEventListener('click', onUpdateShopList);
@@ -45,7 +46,6 @@ closeBtn.addEventListener('click', onCloseModalWindow);
 
  function createShoppingBtn(data) {
     const storage =  localStorage.load('bookList');
-    console.log(storage);
     if (!storage || storage.length === 0) {
       addBtn();
       return;
@@ -65,6 +65,7 @@ function onUpdateShopList() {
     if
      (modalShoppingBtn.textContent === 'add to shopping list') {
       localStorage.addBookToStorage(bookApi);
+      console.log(1);
       removeBtn();
     }
      else {
