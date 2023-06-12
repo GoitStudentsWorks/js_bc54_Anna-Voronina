@@ -209,6 +209,10 @@ input:checked + .slider:before {
   stroke: var(--yellow-color);
 }
 
+.header-nav-link.current .cart {
+  fill: var(--light-black-color);
+}
+
 .cart {
   fill: var(--header-icon-color);
 }

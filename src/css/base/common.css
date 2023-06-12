@@ -20,21 +20,55 @@
 html.light {
   --body-bg-color: #f6f6f6;
   --header-bg-color: #ffffff;
+  /* Header */
   --header-border-color: #111111;
   --logo-color: #000000;
   --header-icon-color: #111111;
   --nav-menu-text-color: #111111;
+  /* Aside categories */
   --aside-text-color: rgba(17, 17, 17, 0.6);
+  --aside-hover-text-color: #4f2ee8;
+  --aside-scroll-color: #e0e0e0;
+  /* Main page */
+  --text-color: #111111;
+  /* Book modal window */
+  --modal-bg-color: #ffffff;
+  --modal-border-color: #111111;
+  --modal-desr-text-color: rgba(17, 17, 17, 0.5);
+  /* Shopping list */
+  --shopping-list-card-bg-color: #ffffff;
+  /* Pagination */
+  --current-btn-bg-color: #111111;
+  --current-btn-text-color: #ffffff;
+  --prev-icon-color: #b4afaf;
+  --btn-border-color: #111111;
 }
 
 html.dark {
   --body-bg-color: #202024;
   --header-bg-color: #111111;
+  /* Header */
   --header-border-color: #ffffff;
   --logo-color: #f3f3f3;
   --header-icon-color: #ffffff;
   --nav-menu-text-color: #ffffff;
+  /* Aside categories */
   --aside-text-color: rgba(255, 255, 255, 0.6);
+  --aside-hover-text-color: #eac645;
+  --aside-scroll-color: rgba(17, 17, 17, 0.6);
+  /* Main page */
+  --text-color: #ffffff;
+  /* Book modal window */
+  --modal-bg-color: #202024;
+  --modal-border-color: #ffffff;
+  --modal-desr-text-color: rgba(255, 255, 255, 0.5);
+  /* Shopping list */
+  --shopping-list-card-bg-color: #111111;
+  /* Pagination */
+  --current-page-bg-color: #ffffff;
+  --current-btn-text-color: #000000;
+  --prev-icon-color: #ffffff;
+  --btn-border-color: #ffffff;
 }
 
 h1,
