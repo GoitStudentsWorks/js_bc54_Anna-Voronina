@@ -4,7 +4,7 @@
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
-  border: 1.5px solid #111111;
+  border: 1.5px solid var(--header-border-color);
   border-radius: 0px 0px 8px 8px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .bookshelf-logo {
-  fill: black;
+  fill: var(--logo-color);
   margin-left: 8px;
 }
 
@@ -65,13 +65,14 @@
 }
 
 .header-nav-link {
-  color: var(--light-black-color);
+  color: var(--nav-menu-text-color);
   line-height: 1.28;
   letter-spacing: 0.04;
   font-weight: 500;
 }
 
 .current {
+  color: var(--light-black-color);
   background-color: var(--yellow-color);
   padding: 8px 16px;
   border-radius: 36px;
@@ -105,11 +106,11 @@
 }
 
 .menu-burger-icon-open {
-  stroke: var(--black-color);
+  stroke: var(--header-icon-color);
 }
 
 .menu-burger-icon-open:hover,
-.menu-burger-icon-open:focus{
+.menu-burger-icon-open:focus {
   stroke: var(--blue-color);
 }
 
@@ -206,4 +207,8 @@ input:checked + .slider:before {
 
 .arrow-right {
   stroke: var(--yellow-color);
+}
+
+.cart {
+  fill: var(--header-icon-color);
 }
