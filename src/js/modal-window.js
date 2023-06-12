@@ -8,6 +8,7 @@ import bookshoppng from '../images/shopping/bookshop.png';
 // -----------------------------
 import localStorage from './local-storage.js';
 import { SwaggerAPI } from './swagger-api.js';
+import countBook from './templates/shoppingListCounter'
 const fetchAPI = new SwaggerAPI();
 
 const backdrop = document.querySelector('.backdrop');
@@ -65,8 +66,8 @@ function onUpdateShopList() {
     if
      (modalShoppingBtn.textContent === 'add to shopping list') {
       localStorage.addBookToStorage(bookApi);
-      console.log(1);
       removeBtn();
+      countBook();
     }
      else {
        storage.forEach((book, ind, arr) => {
@@ -76,6 +77,7 @@ function onUpdateShopList() {
       });
 
       localStorage.save('bookList', storage)
+      countBook();
       addBtn();
     }
 }
