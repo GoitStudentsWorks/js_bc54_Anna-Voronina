@@ -1,5 +1,5 @@
 .home-title-decor {
-  color: var(--light-black-color);
+  color: var(--text-color);
 }
 
 .home-title {
@@ -154,7 +154,7 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
 
-  color: var(--light-black-color);
+  color: var(--text-color);
 }
 
 .book-author {
@@ -177,7 +177,7 @@
   line-height: calc(18 / 14);
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--light-black-color);
+  color: var(--text-color);
   transition: background-color var(--transition-duration) var(--timing-function),
     color var(--transition-duration) var(--timing-function),
     border-color var(--transition-duration) var(--timing-function);

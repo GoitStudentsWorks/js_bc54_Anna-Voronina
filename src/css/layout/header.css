@@ -4,8 +4,9 @@
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
-  border: 1.5px solid var(--header-border-color);
+  border: 1.5px solid var(--border-color);
   border-radius: 0px 0px 8px 8px;
+  background-color: var(--bg-color);
 }
 
 @media only screen and (min-width: 768px) {
@@ -65,7 +66,7 @@
 }
 
 .header-nav-link {
-  color: var(--nav-menu-text-color);
+  color: var(--text-color);
   line-height: 1.28;
   letter-spacing: 0.04;
   font-weight: 500;
@@ -207,6 +208,10 @@ input:checked + .slider:before {
 
 .arrow-right {
   stroke: var(--yellow-color);
+}
+
+.header-nav-link.current .cart {
+  fill: var(--light-black-color);
 }
 
 .cart {
