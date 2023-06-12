@@ -1,4 +1,4 @@
-<div class="support-container">
+<div id="supportContainer" class="support-container">
   <div class="sup-ukr-header">
     <p class="sup-ukr-text">Support Ukraine</p>
     <svg class="sup-ukr-gerb" width="20" height="32">
@@ -7,12 +7,17 @@
   </div>
   <ul class="sup-content-wrp"></ul>
   <div class="btn-wrapper">
-    <button type="button" class="sup-ukr-scroll-btn">
-      <svg class="sub-btn-svg">
+    <button id="scrollDownButton" type="button" class="sup-ukr-scroll-btn">
+      <svg class="sub-btn-svg" width="11.92" height="7.98">
         <use
           class="sup-svg-use"
           href="/src/images/sprite.svg#icon-arr-dwn-svg"
         ></use>
+      </svg>
+    </button>
+    <button id="scrollUpButton" type="button" class="sup-ukr-scroll-btn">
+      <svg class="sub-btn-svg" width="11.92" height="7.98">
+        <use class="sup-svg-use" href="/src/images/sprite.svg#arrow-up"></use>
       </svg>
     </button>
   </div>
