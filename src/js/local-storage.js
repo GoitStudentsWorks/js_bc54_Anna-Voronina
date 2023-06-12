@@ -26,8 +26,9 @@ const remove = key => {
   }
 };
 
-const bookStorage = load('bookList') || [];
+
 const addBookToStorage = book => { // функція добавляє книжки в локал сторедж, потрібно лише передати обєкт який приходить з API
+  const bookStorage = load('bookList') || [];
   const { title, list_name, description, author, book_image } = book;
   const bookInfo = {
       title,
@@ -41,6 +42,7 @@ const addBookToStorage = book => { // функція добавляє книжк
   }
   if (bookStorage.length !== 0) {
     const bookInStorage = bookStorage.find(book => book.title === bookInfo.title);
+    
     if (!bookInStorage) {
       bookStorage.push(bookInfo);
       save('bookList', bookStorage);
@@ -48,6 +50,7 @@ const addBookToStorage = book => { // функція добавляє книжк
     return;
   }
   bookStorage.push(bookInfo);
+
   save('bookList', bookStorage);
 }
 

@@ -1,6 +1,6 @@
-   const modal = document.getElementById("modal");
+   const modal = document.getElementById("burger-modal");
    const openButton = document.querySelector(".js-open-menu-hamburger");
-   const closeButton = document.querySelector(".modal-btn");
+   const closeButton = document.querySelector(".burger-modal-btn");
    
    openButton.addEventListener("click", openModal);
    closeButton.addEventListener("click", closeModal);
