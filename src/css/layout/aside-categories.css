@@ -87,6 +87,8 @@
   margin-bottom: 24px;
 
   transition: color var(--transition-duration) var(--timing-function);
+
+  cursor: pointer;
 }
 
 .aside-item:hover,
