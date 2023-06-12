@@ -37,7 +37,7 @@
 
 .shop-cart-container {
   border: 2px solid rgba(79, 46, 232, 0.4);
-  background-color: var(--shopping-list-card-bg-color);
+  background-color: var(--bg-color);
   border-radius: 16px;
   padding: 14px;
 }
