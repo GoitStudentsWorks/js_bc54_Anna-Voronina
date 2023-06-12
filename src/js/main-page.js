@@ -1,5 +1,6 @@
 import { SwaggerAPI } from './swagger-api.js';
 import createBook from './templates/create-book.js';
+import addListener from './modal-window.js';
 
 const booksContainer = document.querySelector('.category-list');
 const title = document.querySelector('.home-title');
@@ -48,6 +49,7 @@ async function createBlock() {
   } catch (error) {
     console.log(error);
   }
+  addListener()
 }
 
 function findBtn() {
