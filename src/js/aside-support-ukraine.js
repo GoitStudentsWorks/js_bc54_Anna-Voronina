@@ -48,3 +48,25 @@ const supportCompanyElements = supUkrFonds.map((fund, index) => {
 supportCompanyElements.forEach(element => {
   supportCompaniesContainer.appendChild(element);
 });
+
+// -----------------Функція прокрутки вгору-----------------
+
+const container = document.querySelector('.sup-content-wrp');
+const scrollDownButton = document.querySelector('#scrollDownButton');
+const scrollUpButton = document.querySelector('#scrollUpButton');
+
+container.addEventListener('scroll', function () {
+  if (container.scrollTop === container.scrollHeight - container.clientHeight) {
+    scrollDownButton.style.display = 'none';
+    scrollUpButton.style.display = 'block';
+  } else {
+    scrollDownButton.style.display = 'block';
+    scrollUpButton.style.display = 'none';
+  }
+});
+
+scrollUpButton.addEventListener('click', function () {
+  container.scrollTop = 0;
+});
+
+scrollUpButton.style.display = 'none';
