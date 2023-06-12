@@ -108,6 +108,11 @@
   stroke: var(--black-color);
 }
 
+.menu-burger-icon-open:hover,
+.menu-burger-icon-open:focus{
+  stroke: var(--blue-color);
+}
+
 @media only screen and (min-width: 768px) {
   .menu-burger {
     display: none;

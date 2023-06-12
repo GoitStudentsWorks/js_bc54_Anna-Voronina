@@ -1,8 +1,9 @@
 
-.burger-modal {
+.mobile-modal {
     position: fixed;
     top: 60px;
     left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -25,7 +26,7 @@
   }
   
   @media screen and (min-width: 768px) {
-    .burger-modal,
+    .mobile-modal,
     .js-open-menu-hamburger {
       display: none;
     }
@@ -54,6 +55,11 @@
   
   .burger-modal-icon-close {
     stroke: black;
+  }
+
+  .modal-icon-close:hover,
+  .modal-icon-close:focus{
+    stroke: var(--blue-color)
   }
   
   .login-modal {
