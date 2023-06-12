@@ -8,6 +8,7 @@ import bookshoppng from '../images/shopping/bookshop.png';
 // -----------------------------
 import localStorage from './local-storage.js';
 import { SwaggerAPI } from './swagger-api.js';
+import { countBook } from './templates/shoppingListCounter';
 const fetchAPI = new SwaggerAPI();
 
 const backdrop = document.querySelector('.backdrop');
@@ -28,9 +29,9 @@ async function onOpenModalWindow(event) {
   event.preventDefault();
   document.body.style.overflow = 'hidden';
   backdrop.classList.toggle('is-hidden');
-backdrop.addEventListener('click', onBackdrop);
-window.addEventListener('keydown', onEsc);
-closeBtn.addEventListener('click', onCloseModalWindow);
+  backdrop.addEventListener('click', onBackdrop);
+  window.addEventListener('keydown', onEsc);
+  closeBtn.addEventListener('click', onCloseModalWindow);
   try {
     fetchAPI.bookId = event.currentTarget.dataset.id;
     const resp = await fetchAPI.fetchBookById();
@@ -44,40 +45,43 @@ closeBtn.addEventListener('click', onCloseModalWindow);
   }
 }
 
- function createShoppingBtn(data) {
-    const storage =  localStorage.load('bookList');
-    if (!storage || storage.length === 0) {
-      addBtn();
+function createShoppingBtn(data) {
+  const storage = localStorage.load('bookList');
+  if (!storage || storage.length === 0) {
+    addBtn();
+    return;
+  }
+  for (book of storage) {
+    if (book.title === data.title) {
+      removeBtn();
       return;
+    } else {
+      addBtn();
     }
-    for (book of storage) {
-      if (book.title === data.title) {
-        removeBtn();
-        return;
-      } else {
-        addBtn();
-      }}
+  }
 }
 
 function onUpdateShopList() {
   const storage = localStorage.load('bookList');
-      const title = document.querySelector('.modal-book-name').textContent;
-    if
-     (modalShoppingBtn.textContent === 'add to shopping list') {
-      localStorage.addBookToStorage(bookApi);
-      console.log(1);
-      removeBtn();
-    }
-     else {
-       storage.forEach((book, ind, arr) => {
-        if (book.title === title) {
-          return arr.splice(ind, 1);
-        }
-      });
+  const title = document.querySelector('.modal-book-name').textContent;
+  if (modalShoppingBtn.textContent === 'add to shopping list') {
+    localStorage.addBookToStorage(bookApi);
+    removeBtn();
+    countBook();
+  } else {
+    storage.forEach((book, ind, arr) => {
+      if (book.title === title) {
+        return arr.splice(ind, 1);
+      }
+    });
 
-      localStorage.save('bookList', storage)
-      addBtn();
+    localStorage.save('bookList', storage);
+    if (storage.length === 0) {
+      localStorage.remove('bookList');
     }
+    countBook();
+    addBtn();
+  }
 }
 
 function addBtn() {
@@ -154,14 +158,15 @@ alt="Book cover"
 }
 
 function onEsc(event) {
-  if (event.key === "Escape"){
-    onCloseModalWindow()
+  if (event.key === 'Escape') {
+    onCloseModalWindow();
   }
 }
 
-function onBackdrop(event){
-  if(event.target === backdrop){
-    onCloseModalWindow()}
+function onBackdrop(event) {
+  if (event.target === backdrop) {
+    onCloseModalWindow();
+  }
 }
 
 function onCloseModalWindow() {

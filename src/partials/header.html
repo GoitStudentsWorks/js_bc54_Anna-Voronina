@@ -13,28 +13,34 @@
   <nav class="header-nav">
     <ul class="list header-nav-list">
       <li class="header-nav-item">
-        <a class="header-nav-link current" href="./index.html">HOME</a>
+        <a
+          class="header-nav-link current js-header-home-btn"
+          href="./index.html"
+          >HOME</a
+        >
       </li>
       <li class="header-nav-item">
         <a
-          class="header-nav-link shopping-list-header"
-          href="./shopping-list.html" 
+          class="header-nav-link shopping-list-header js-header-shop-btn"
+          href="./shopping-list.html"
           >SHOPPING LIST
-          <svg сlass="cart" width="20" height="20">
-            <use href="./images/sprite.svg#uil_cart"></use></svg
-        ></a>
+          <svg class="cart" width="20" height="20">
+            <use href="./images/sprite.svg#uil_cart"></use>
+          </svg>
+          <span class="header-shopping-count is-hidden"></span>
+        </a>
       </li>
     </ul>
   </nav>
 
-  <div class="switсher-burger">
-    <label class="switch">
+  <div class="switcher-burger">
+    <label class="switch js-themes">
       <input type="checkbox" />
       <span class="slider round"></span>
     </label>
 
     <button
-      class="menu-burger js-open-menu-hamburger"
+      class="menu-burger js-open-menu-burger"
       aria-expanded="false"
       aria-controls="mobile-menu"
     >
@@ -43,9 +49,21 @@
       </svg>
     </button>
 
+    
+
     <button class="button login-btn" type="button">
       Sign up<svg class="arrow-right" width="20" height="20">
         <use href="./images/sprite.svg#arrow-right"></use>
+      </svg>
+    </button>
+
+    <button
+      class="close-mobile-modal-btn"
+      type="button"
+      onclick="closeModal()"
+    >
+      <svg class="mobile-modal-icon-close" width="14" height="14">
+        <use href="./images/sprite.svg#x-close"></use>
       </svg>
     </button>
   </div>

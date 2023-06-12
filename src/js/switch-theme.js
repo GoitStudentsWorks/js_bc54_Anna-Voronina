@@ -1,13 +1,11 @@
-const switchInput = document.querySelector('.switch input');
+const switcher = document.querySelector('.js-themes');
 
-switchInput.addEventListener('change', () => {
-  // Проверяем состояние переключателя
-  if (switchInput.checked) {
-    // Применяем стили для темной темы
-    document.body.classList.add('dark-theme');
-  } else {
-    // Применяем стили для светлой темы
-    document.body.classList.remove('dark-theme');
+switcher.addEventListener('change', onSwitcherChange);
+
+function onSwitcherChange(event) {
+  if (event.target.nodeName === 'INPUT') {
+    const htmlEl = document.documentElement;
+    htmlEl.classList.toggle('light');
+    htmlEl.classList.toggle('dark');
   }
-});
-
+}

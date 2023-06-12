@@ -9,6 +9,7 @@ import book265_22 from '../images/shopping/books_265_@2.png';
 
 import Storage from './local-storage';
 import getShoppingCartMarkup from './shopping-cart';
+import { countBook } from './templates/shoppingListCounter';
 
 import { SwaggerAPI } from './swagger-api.js';
 
@@ -19,7 +20,7 @@ const listContainer = document.querySelector('.js-shopping-list');
 const bookStorage = Storage.load('bookList');
 
 const shopContainer = async () => {
-  if (bookStorage.length > 0) {
+  if (bookStorage) {
     listContainer.innerHTML = `
         <ul class="shop-cart-list">
             ${getShoppingCartMarkup(bookStorage)}
@@ -44,10 +45,15 @@ const shopContainer = async () => {
           bookStorage.splice(deleteBookIndex, 1);
           Storage.save('bookList', bookStorage);
           e.target.closest('li').remove();
-          listContainer.innerHTML = emptyShoppingMarkup();
+          if (bookStorage.length === 0) {
+            listContainer.innerHTML = emptyShoppingMarkup();
+            Storage.remove('bookList');
+          }
+          countBook();
+          return;
         }
-      });
-    });
+      }); //end of click
+    }); // end forEach
   } else {
     listContainer.innerHTML = emptyShoppingMarkup();
   }
