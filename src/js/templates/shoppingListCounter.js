@@ -3,7 +3,7 @@ const shoppingCountEl = document.querySelector('.header-shopping-count');
 
 export const countBook = () => {
   const storageBook = Storage.load('bookList');
-  if (storageBook.length > 0) {
+  if (storageBook) {
     shoppingCountEl.classList.remove('is-hidden');
     shoppingCountEl.textContent = storageBook.length;
   } else {
