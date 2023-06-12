@@ -13,22 +13,28 @@
   <nav class="header-nav">
     <ul class="list header-nav-list">
       <li class="header-nav-item">
-        <a class="header-nav-link current" href="./index.html">HOME</a>
+        <a
+          class="header-nav-link current js-header-home-btn"
+          href="./index.html"
+          >HOME</a
+        >
       </li>
       <li class="header-nav-item">
         <a
-          class="header-nav-link shopping-list-header"
+          class="header-nav-link shopping-list-header js-header-shop-btn"
           href="./shopping-list.html"
           >SHOPPING LIST
-          <svg сlass="cart" width="20" height="20">
-            <use href="./images/sprite.svg#uil_cart"></use></svg
-        ></a>
+          <svg class="cart" width="20" height="20">
+            <use href="./images/sprite.svg#uil_cart"></use>
+          </svg>
+          <span class="header-shopping-count is-hidden"></span>
+        </a>
       </li>
     </ul>
   </nav>
 
-  <div class="switсher-burger">
-    <label class="switch">
+  <div class="switcher-burger">
+    <label class="switch js-themes">
       <input type="checkbox" />
       <span class="slider round"></span>
     </label>
