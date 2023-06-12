@@ -1,6 +1,6 @@
 .dark-theme {
-  background-color: var(--light-black-color);
-  color: white;
+  background-color: var(--dark-grey-color);
+  color: var(--white-color);
 }
 
 .dark-theme .header-container {
@@ -26,5 +26,5 @@
 
 .dark-theme .header-container {
   border: 1.5px solid var(--white-color);
-  border-radius: 0px 0px 8px 8px;
 }
+
