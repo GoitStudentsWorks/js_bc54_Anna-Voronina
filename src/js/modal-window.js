@@ -76,6 +76,9 @@ function onUpdateShopList() {
     });
 
     localStorage.save('bookList', storage);
+    if (storage.length === 0) {
+      localStorage.remove('bookList');
+    }
     countBook();
     addBtn();
   }
