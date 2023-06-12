@@ -44,10 +44,13 @@ const shopContainer = async () => {
           bookStorage.splice(deleteBookIndex, 1);
           Storage.save('bookList', bookStorage);
           e.target.closest('li').remove();
-          listContainer.innerHTML = emptyShoppingMarkup();
+          if (bookStorage.length === 0) {
+            listContainer.innerHTML = emptyShoppingMarkup();
+          }
+          return;
         }
-      });
-    });
+      }); //end of click
+    }); // end forEach
   } else {
     listContainer.innerHTML = emptyShoppingMarkup();
   }
