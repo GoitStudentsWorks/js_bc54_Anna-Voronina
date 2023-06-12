@@ -1,5 +1,6 @@
 import { SwaggerAPI } from './swagger-api';
 import createCategoriesMarkup from './templates/create-categories';
+import addListener from './modal-window.js';
 
 const categoriesList = document.querySelector('.aside-list');
 const categoriesTitle = document.querySelector('.aside-title')
@@ -11,7 +12,7 @@ const createCategoriesItem = async () => {
   try {
     const { data } = await swaggerCategoriesApi.fetchBooksCategoryList();
     const searchCategory = data.map(category => {
-      return `<a class="aside-link"><li class="aside-item">${category.list_name}</li></a>`;
+      return `<a class="aside-link" ><li class="aside-item">${category.list_name}</li></a>`;
     }).join('');
     categoriesList.innerHTML = searchCategory;
   } catch (error) {
@@ -52,6 +53,7 @@ const onCategoriesLinkClick = event => {
       renderingCategories.innerHTML = `<h1 class="categories-title">${decoratedListName}</h1> <ul class="categories-item">${createCategoriesMarkup(
         data
       )}</ul>`;
+      addListener()
     } catch (error) {
       console.log(error);
     }
