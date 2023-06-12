@@ -4,7 +4,6 @@
   overflow-y: auto;
 }
 
-
 @media only screen and (max-width: 767px) {
   .aside-container {
     margin-bottom: 40px;
@@ -36,36 +35,30 @@
 }
 
 .aside-title {
-
   font-weight: 400;
   font-size: 16px;
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
   margin-bottom: 24px;
 
-    transition: var(--anim-hover);
-
-    }
+  transition: color var(--transition-duration) var(--timing-function);
+}
 .aside-title:hover,
 .aside-title:focus {
-font-weight: 700;
+  font-weight: 700;
   font-size: 18px;
-  line-height: calc(24/18);
+  line-height: calc(24 / 18);
   color: var(--blue-color);
-  letter-spacing: -0.02em;
   text-transform: uppercase;
-  transition: transform var(--transition-duration) var(--timing-function);
-
 }
 
 @media only screen and (min-width: 768px) {
   .aside-title {
     font-size: 18px;
-    line-height: calc(24/18)
+    line-height: calc(24 / 18);
   }
 }
 .aside-title.active {
-
   font-weight: 700;
   font-size: 16px;
   letter-spacing: -0.02em;
@@ -77,14 +70,14 @@ font-weight: 700;
 @media only screen and (min-width: 768px) {
   .aside-title.active {
     font-size: 18px;
-    line-height: calc(24/18);
+    line-height: calc(24 / 18);
   }
 }
 
 .aside-item {
   font-weight: 400;
   font-size: 18px;
-  line-height: calc(24/18);
+  line-height: calc(24 / 18);
   padding-right: 20px;
 
   letter-spacing: -0.02em;
@@ -93,39 +86,34 @@ font-weight: 700;
 
   margin-bottom: 24px;
 
-  transition: var(--anim-hover);
-
+  transition: color var(--transition-duration) var(--timing-function);
 }
 
 .aside-item:hover,
- .aside-item:focus{
-  
+.aside-item:focus {
   font-weight: 700;
   font-size: 18px;
-  line-height: calc(24/18);
+  line-height: calc(24 / 18);
   color: var(--blue-color);
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  transition: transform var(--transition-duration) var(--timing-function);
 }
 
 .active {
-      font-weight: 700;
-      font-size: 16px;
-     
-      color: var(--blue-color);
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+
+  color: var(--blue-color);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 @media only screen and (min-width: 768px) {
-  .active{
+  .active {
     font-weight: 700;
     font-size: 18px;
-    line-height: calc(24/18);
-   
+    line-height: calc(24 / 18);
   }
 }
-
 
 @media only screen and (max-width: 767px) {
   .categories-item {
@@ -166,16 +154,11 @@ font-weight: 700;
   }
 
   .aside-item {
-
     font-size: 18px;
     line-height: calc(24 / 18);
-
     margin-bottom: 32px;
   }
 
-  .aside-item:hover {
-    font-size: 18px;
-  }
   .aside-title {
     font-size: 18px;
     line-height: calc(24 / 18);
