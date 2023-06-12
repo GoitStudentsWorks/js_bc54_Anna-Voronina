@@ -1,7 +1,5 @@
 .home-title-decor {
-color: var(--light-black-color);
- 
-  
+  color: var(--light-black-color);
 }
 
 .home-title {
@@ -9,8 +7,7 @@ color: var(--light-black-color);
   font-size: 32px;
   line-height: calc(38 / 32);
   letter-spacing: -0.04em;
-color: var(--blue-color);
-
+  color: var(--blue-color);
 }
 
 .category-name {
@@ -20,9 +17,6 @@ color: var(--blue-color);
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--grey-text-color);
-}
-
-.category-list {
 }
 
 @media only screen and (min-width: 768px) {
@@ -118,6 +112,8 @@ color: var(--blue-color);
   align-items: center;
   justify-content: center;
 
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   width: 100%;
   height: 70px;
   padding: 40px 32px;
