@@ -1,6 +1,9 @@
 import { SwaggerAPI } from './swagger-api';
 import createCategoriesMarkup from './templates/create-categories';
 import addListener from './modal-window.js';
+import emptySeeMoreBooksMarkup from './templates/empty-category-markup';
+
+
 
 const categoriesList = document.querySelector('.aside-list');
 const categoriesTitle = document.querySelector('.aside-title')
@@ -41,15 +44,17 @@ const onCategoriesLinkClick = event => {
   const createMarkupCategories = async () => {
     try {
       const { data } = await swaggerCategoriesApi.fetchBooksByCategory(value);
-      console.log(data);
-
+       if (data.length === 0) {
+      renderingCategories.innerHTML = emptySeeMoreBooksMarkup();
+      return;
+    }
       const listName = data[0].list_name;
 
       const words = listName.split(' ');
       const lastWord = words[words.length - 1];
       const otherWords = words.slice(0, words.length - 1).join(' ');
 
-      const decoratedListName = `${otherWords} <span class="categories-title-decor">${lastWord}</span>`;
+         const decoratedListName = `${otherWords} <span class="categories-title-decor">${lastWord}</span>`;
       renderingCategories.innerHTML = `<h1 class="categories-title">${decoratedListName}</h1> <ul class="categories-item">${createCategoriesMarkup(
         data
       )}</ul>`;
