@@ -29,8 +29,10 @@ if (storageBook) {
 
 function onSignUpBtnClick() {
   ref.authModal.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
 }
 
 function onAuthModalCloseBtnClick() {
   ref.authModal.classList.add('is-hidden');
+  document.body.style.overflow = 'auto';
 }
