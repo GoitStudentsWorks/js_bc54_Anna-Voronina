@@ -62,7 +62,7 @@
 }
 
 .x-close {
-  stroke: var(--light-black-color);
+  stroke: var(--header-icon-color);
   transition: stroke var(--transition-duration) var(--timing-function);
 }
 
