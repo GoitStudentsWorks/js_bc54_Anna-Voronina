@@ -7,6 +7,7 @@ import bookshop from '../images/shopping/bookshop.webp';
 import bookshoppng from '../images/shopping/bookshop.png';
 // -----------------------------
 import localStorage from './local-storage.js';
+import { Notify } from 'notiflix';
 import { SwaggerAPI } from './swagger-api.js';
 import { countBook } from './templates/shoppingListCounter';
 const fetchAPI = new SwaggerAPI();
@@ -36,15 +37,15 @@ async function onOpenModalWindow(event) {
     fetchAPI.bookId = event.currentTarget.dataset.id;
     const resp = await fetchAPI.fetchBookById();
     bookApi = resp.data;
-    console.log(bookApi);
     createBookMarkup(bookApi);
     setTimeout(() => {
-      console.log(bookApi);
       createShoppingBtn(bookApi);
     }, 0);
     modalShoppingBtn.addEventListener('click', onUpdateShopList);
   } catch {
-    err => console.log(err);
+    Notify.failure(
+      'Oops! Something went wrong. We are sorry for the inconvenience. Please try again later.'
+    );
   }
 }
 
@@ -62,16 +63,6 @@ async function createShoppingBtn(data) {
   } else {
     addBtn();
   }
-
-  // for (book of storage) {
-  //   if (book.title === data.title) {
-  //     removeBtn();
-  //     return;
-  //   }
-  //   // else {
-  //   addBtn();
-  //   // }
-  // }
 }
 
 function onUpdateShopList() {
@@ -79,6 +70,7 @@ function onUpdateShopList() {
   const title = document.querySelector('.modal-book-name').textContent;
   if (modalShoppingBtn.textContent === 'add to shopping list') {
     localStorage.addBookToStorage(bookApi);
+    Notify.success('The book has been added to your shopping cart.')
     removeBtn();
     countBook();
   } else {
@@ -94,6 +86,7 @@ function onUpdateShopList() {
     }
     countBook();
     addBtn();
+    Notify.failure('The book has been removed from your shopping cart.')
   }
 }
 
