@@ -54,15 +54,24 @@ async function createShoppingBtn(data) {
     addBtn();
     return;
   }
-  for (book of storage) {
-    if (book.title === data.title) {
-      removeBtn();
-      return;
-    }
-    // else {
+
+  const addedBook = storage.find(book => book.title === data.title);
+
+  if (addedBook) {
+    removeBtn();
+  } else {
     addBtn();
-    // }
   }
+
+  // for (book of storage) {
+  //   if (book.title === data.title) {
+  //     removeBtn();
+  //     return;
+  //   }
+  //   // else {
+  //   addBtn();
+  //   // }
+  // }
 }
 
 function onUpdateShopList() {
