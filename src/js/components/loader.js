@@ -1,10 +1,11 @@
 const loader = document.querySelector('.loader');
+let bodyWidth = 0;
 
 loaderFunc();
 
 function loaderFunc(params) {
-  window.addEventListener('load', () => {
-    // const loader = document.querySelector('.loader');
+  window.addEventListener('load', event => {
+    bodyWidth = event.target.body.clientWidth;
 
     loader.classList.add('loader--hidden');
 
@@ -21,3 +22,5 @@ export function onClickLoader() {
     loader.classList.remove('loader');
   });
 }
+
+export { bodyWidth };
