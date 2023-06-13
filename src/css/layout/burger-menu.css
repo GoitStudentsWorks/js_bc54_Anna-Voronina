@@ -57,11 +57,6 @@
   transition: stroke var(--transition-duration) var(--timing-function);
 }
 
-/* .menu-burger-icon-close:hover,
-.menu-burger-icon-close:focus{
-  stroke: var(--blue-color);
-} */
-
 .mobile-modal-icon-close:hover,
 .mobile-modal-icon-close:focus {
   stroke: var(--blue-color);
