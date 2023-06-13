@@ -5,3 +5,5 @@ import './header.js';
 import './main-page.js';
 import './modal-window.js';
 import './switch-theme.js';
+import '../js/components/scroll-up.js';
+import '../js/components/loader.js';

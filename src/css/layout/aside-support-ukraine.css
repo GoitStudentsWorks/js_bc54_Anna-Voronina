@@ -92,3 +92,15 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.shopping-list-support-ukraine {
+  display: none;
+}
+
+@media only screen and (min-width: 1440px) {
+  .shopping-list-support-ukraine {
+    display: block;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
