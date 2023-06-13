@@ -1,10 +1,12 @@
-import amazonImg from "../images/shopping/amazon.png";
-import amazonWebp from "../images/shopping/amazon.webp"
-import appleBook from "../images/shopping/apple.png";
-import appleWebp from "../images/shopping/apple.webp"
-import bookShopIcon from "../images/shopping/bookshop.png";
-import bookShopWebp from "../images/shopping/bookshop.webp"
-import sprite from "../images/sprite.svg"
+import amazonImg from '../images/shopping/amazon.png';
+import amazonWebp from '../images/shopping/amazon.webp';
+import appleBook from '../images/shopping/apple.png';
+import appleWebp from '../images/shopping/apple.webp';
+import bookShopIcon from '../images/shopping/bookshop.png';
+import bookShopWebp from '../images/shopping/bookshop.webp';
+import sprite from '../images/sprite.svg';
+
+const listContainer = document.querySelector('.js-shopping-list');
 
 let bodyWidth = 0;
 onload = event => {
@@ -24,18 +26,19 @@ export default function (bookColection) {
         apple,
         bookShop,
       } = book;
-        description.length !== 0 
-            ? description
-            : description = "We are pleased to inform you that all information about this book you can found on partner resources (such as Amazon, etc.)"
-    if (bodyWidth <= 767) {
-        list_name = list_name.slice(0, 20) + "..."
-        description = description.slice(0, 85) + "..."
-    }
-    if (bodyWidth >= 768 && bodyWidth < 1440) {
+      description.length !== 0
+        ? description
+        : (description =
+            'We are pleased to inform you that all information about this book you can found on partner resources (such as Amazon, etc.)');
+      if (bodyWidth <= 767) {
+        list_name = list_name.slice(0, 20) + '...';
+        description = description.slice(0, 85) + '...';
+      }
+      if (bodyWidth >= 768 && bodyWidth < 1440) {
         description.length > 1 && description.length < 250
-            ? description
-            : description.slice(0, 250) + "..."
-    }
+          ? description
+          : description.slice(0, 250) + '...';
+      }
       return `<li class="shop-cart-container">
             <div class="shop-cart-wrap">
                 <div class="shop-image-wrapper">
@@ -88,5 +91,10 @@ export default function (bookColection) {
         </li>`;
     })
     .join('');
-  return markup;
+
+  return (listContainer.innerHTML = `
+         <ul class="shop-cart-list">
+             ${markup}
+         </ul>
+         `);
 }
