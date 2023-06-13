@@ -1,5 +1,4 @@
 import Storage from './local-storage';
-import { countBook } from './templates/shoppingListCounter';
 
 const ref = {
   homeBtnEl: document.querySelector('.js-header-home-btn'),
@@ -22,10 +21,10 @@ if (currentPath === 'shopping-list.html') {
 }
 //end of
 
-const storageBook = Storage.load('bookList');
-if (storageBook) {
-  countBook();
-}
+// const storageBook = Storage.load('bookList');
+// if (storageBook) {
+//   countBook();
+// }
 
 function onSignUpBtnClick() {
   ref.authModal.classList.remove('is-hidden');

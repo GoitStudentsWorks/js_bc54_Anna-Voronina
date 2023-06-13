@@ -1,4 +1,8 @@
 import storage from './local-storage.js';
+import whiteAmazonPng from '../images/shopping/amazon-white.png';
+import whiteAmazonWebp from '../images/shopping/amazon-white.webp';
+import blackAmazonPng from '../images/shopping/amazon.png';
+import blackAmazonWebp from '../images/shopping/amazon.webp';
 
 const switcher = document.querySelector('.js-themes');
 const htmlEl = document.documentElement;
@@ -15,12 +19,14 @@ function onSwitcherChange(event) {
 
 function resetTheme() {
   if (switcher.children.switcher_checkbox.checked) {
-    themeClassToggle();
     storage.save('theme', 'dark');
+    changeAmazonIcon('dark');
   } else {
-    themeClassToggle();
     storage.remove('theme');
+    changeAmazonIcon('light');
   }
+
+  themeClassToggle();
 }
 
 function initTheme() {
@@ -35,4 +41,24 @@ function initTheme() {
 function themeClassToggle() {
   htmlEl.classList.toggle('light');
   htmlEl.classList.toggle('dark');
+}
+
+function changeAmazonIcon(color) {
+  const storageData = storage.load('bookList');
+  const amazonPictures = document.querySelectorAll('.amazon-picture');
+  if (storageData) {
+    if (color === 'dark') {
+      console.log('dark');
+      for (const amazonPicture of amazonPictures) {
+        amazonPicture.children[0].srcset = whiteAmazonWebp;
+        amazonPicture.children[1].srcset = whiteAmazonPng;
+      }
+    }
+  }
+  if (color === 'light') {
+    for (const amazonPicture of amazonPictures) {
+      amazonPicture.children[0].srcset = blackAmazonWebp;
+      amazonPicture.children[1].srcset = blackAmazonPng;
+    }
+  }
 }

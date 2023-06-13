@@ -1,10 +1,12 @@
 // -----------images----------
-import amazon from '../images/shopping/amazon.webp';
-import amazonpng from '../images/shopping/amazon.png';
+import blackAmazonWebp from '../images/shopping/amazon.webp';
+import blackAmazonPng from '../images/shopping/amazon.png';
 import apple from '../images/shopping/apple.webp';
 import applepng from '../images/shopping/apple.png';
 import bookshop from '../images/shopping/bookshop.webp';
 import bookshoppng from '../images/shopping/bookshop.png';
+import whiteAmazonPng from '../images/shopping/amazon-white.png';
+import whiteAmazonWebp from '../images/shopping/amazon-white.webp';
 // -----------------------------
 import localStorage from './local-storage.js';
 import { Notify } from 'notiflix';
@@ -17,6 +19,10 @@ const closeBtn = document.querySelector('.modal-close-btn');
 const modalShoppingBtn = document.querySelector('.modal-btn');
 const modalInfo = document.querySelector('.modal-info');
 const container = document.querySelector('.modal-book');
+const progressBtn = document.querySelector('#progress');
+
+let amazonPng = blackAmazonPng;
+let amazonWebp = blackAmazonWebp;
 let bookApi = {};
 
 export default function addListener() {
@@ -28,7 +34,19 @@ export default function addListener() {
 
 async function onOpenModalWindow(event) {
   event.preventDefault();
+
+  const htmlElClass = await localStorage.load('theme');
+
+  if (htmlElClass) {
+    amazonPng = whiteAmazonPng;
+    amazonWebp = whiteAmazonWebp;
+  } else {
+    amazonPng = blackAmazonPng;
+    amazonWebp = blackAmazonWebp;
+  }
+
   document.body.style.overflow = 'hidden';
+  progressBtn.classList.add('is-hidden');
   backdrop.classList.toggle('is-hidden');
   backdrop.addEventListener('click', onBackdrop);
   window.addEventListener('keydown', onEsc);
@@ -70,7 +88,7 @@ function onUpdateShopList() {
   const title = document.querySelector('.modal-book-name').textContent;
   if (modalShoppingBtn.textContent === 'add to shopping list') {
     localStorage.addBookToStorage(bookApi);
-    Notify.success('The book has been added to your shopping cart.')
+    Notify.success('The book has been added to your shopping cart.');
     removeBtn();
     countBook();
   } else {
@@ -86,7 +104,7 @@ function onUpdateShopList() {
     }
     countBook();
     addBtn();
-    Notify.failure('The book has been removed from your shopping cart.')
+    Notify.failure('The book has been removed from your shopping cart.');
   }
 }
 
@@ -110,21 +128,25 @@ alt="Book cover"
 <p class="modal-book-name">${book.title}</p>
 <p class="modal-book-author">${book.author}</p>
 <p class="modal-list-name is-hidden">${book.list_name}</p>
-<p class="modal-book-desc">${book.description}
+<p class="modal-book-desc">${
+    book.description
+      ? book.description
+      : 'We are pleased to inform you that all information about this book you can found on partner resources (such as Amazon, etc.)'
+  }
 </p>
 <div class="modal-icons-container">
   <a href="${book.buy_links[0].url}" target="_blank" rel="noopener noreferrer"
     ><picture class="modal-icon">
       <source
-        srcset="${amazon}"
+        srcset="${amazonWebp}"
         type="image/webp"
       />
       <source
-        srcset="${amazonpng}"
+        srcset="${amazonPng}"
         type="image/png"
       />
       <img
-        src="${amazonpng}"
+        src="${amazonPng}"
         alt="Amazon"
       /> </picture
   ></a>
@@ -178,6 +200,7 @@ function onBackdrop(event) {
 function onCloseModalWindow() {
   backdrop.classList.toggle('is-hidden');
   document.body.style.overflow = 'visible';
+  progressBtn.classList.remove('is-hidden');
   backdrop.removeEventListener('click', onBackdrop);
   window.removeEventListener('keydown', onEsc);
   closeBtn.removeEventListener('click', onCloseModalWindow);
