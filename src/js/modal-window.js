@@ -39,6 +39,7 @@ async function onOpenModalWindow(event) {
     console.log(bookApi);
     createBookMarkup(bookApi);
     setTimeout(() => {
+      console.log(bookApi);
       createShoppingBtn(bookApi);
     }, 0);
     modalShoppingBtn.addEventListener('click', onUpdateShopList);
@@ -47,8 +48,8 @@ async function onOpenModalWindow(event) {
   }
 }
 
-function createShoppingBtn(data) {
-  const storage = localStorage.load('bookList');
+async function createShoppingBtn(data) {
+  const storage = await localStorage.load('bookList');
   if (!storage || storage.length === 0) {
     addBtn();
     return;
