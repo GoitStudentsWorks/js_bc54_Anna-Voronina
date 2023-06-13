@@ -31,7 +31,7 @@
   width: 8px;
   height: 114px;
   border-radius: 12px;
-  background-color: #e0e0e0;
+  background-color: var(--aside-scroll-color);
 }
 
 .aside-title {
@@ -48,7 +48,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: calc(24 / 18);
-  color: var(--blue-color);
+  color: var(--aside-hover-text-color);
   text-transform: uppercase;
 }
 
@@ -62,7 +62,7 @@
   font-weight: 700;
   font-size: 16px;
   letter-spacing: -0.02em;
-  color: var(--blue-color);
+  color: var(--aside-hover-text-color);
   margin-bottom: 24px;
 
   text-transform: uppercase;
@@ -96,7 +96,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: calc(24 / 18);
-  color: var(--blue-color);
+  color: var(--aside-hover-text-color);
   letter-spacing: -0.02em;
   text-transform: uppercase;
 }
@@ -105,7 +105,7 @@
   font-weight: 700;
   font-size: 16px;
 
-  color: var(--blue-color);
+  color: var(--aside-hover-text-color);
   letter-spacing: -0.02em;
   text-transform: uppercase;
 }
@@ -135,7 +135,7 @@
   line-height: calc(38 / 32);
   letter-spacing: -0.04em;
 
-  color: var(--light-black-color);
+  color: var(--text-color);
 }
 .categories-title-decor {
   color: var(--blue-color);

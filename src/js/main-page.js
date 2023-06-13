@@ -1,6 +1,8 @@
 import { SwaggerAPI } from './swagger-api.js';
+import { Notify } from 'notiflix';
 import createBook from './templates/create-book.js';
 import addListener from './modal-window.js';
+import emptySeeMoreBooksMarkup from './templates/empty-category-markup';
 
 const booksContainer = document.querySelector('.category-list');
 const title = document.querySelector('.home-title');
@@ -19,8 +21,30 @@ async function createBlock() {
   try {
     const { data } = await topBooksAPI.fetchTopBooks();
 
+    let randomCategoryNum = [];
+    function generateUniqueRandom(maxNr) {
+      let random = (Math.random() * maxNr).toFixed();
+
+      random = Number(random);
+
+      if (!randomCategoryNum.includes(random)) {
+        randomCategoryNum.push(random);
+        return;
+      } else {
+        if (randomCategoryNum.length < maxNr) {
+          return generateUniqueRandom(maxNr);
+        } else {
+          return false;
+        }
+      }
+    }
+
     for (let i = 0; i < 4; i++) {
-      let topBooks = data[i].books;
+      generateUniqueRandom(17);
+    }
+
+    randomCategoryNum.forEach(el => {
+      let topBooks = data[el].books;
       let markUpCount = 0;
 
       if (bodyWidth <= 767) {
@@ -31,6 +55,11 @@ async function createBlock() {
       }
       if (bodyWidth >= 1440) {
         markUpCount = 5;
+      }
+
+      if (topBooks.length === 0) {
+        Notify.failure('There are no best sellers books in this category');
+        return;
       }
 
       const markup = `<li class="category-list-item top-list-item">
@@ -45,11 +74,11 @@ async function createBlock() {
 
       booksContainer.insertAdjacentHTML('beforeend', markup);
       findBtn();
-    }
+    });
   } catch (error) {
-    console.log(error);
+    Notify.failure('Something went wrong. Please, try later.');
   }
-  addListener()
+  addListener();
 }
 
 function findBtn() {
@@ -68,25 +97,28 @@ async function onSeeMoreBtnClick(event) {
     topBooksAPI.categoryName = name;
     const { data } = await topBooksAPI.fetchBooksByCategory();
 
+    if (data.length === 0) {
+      booksContainer.innerHTML = emptySeeMoreBooksMarkup();
+      return;
+    }
+
     title.innerHTML = divideTitleElements(name);
     booksContainer.classList.add('category-list-click');
     booksContainer.innerHTML = createBook(data);
     addActiveClassToCategoryListItem(name);
+    addListener();
   } catch (error) {
-    console.log(error);
+    Notify.failure('Something went wrong. Please, try later.');
   }
 }
 
 function divideTitleElements(categoryName) {
-
-
   const words = categoryName.split(' ');
   const lastWord = words[words.length - 1];
   const otherWords = words.slice(0, words.length - 1).join(' ');
 
   return `<span class="home-title-decor">${otherWords} </span>${lastWord}`;
 }
-
 
 function addActiveClassToCategoryListItem(name) {
   const asideCategoryItems = document.querySelectorAll('.aside-item');

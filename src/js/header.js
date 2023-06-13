@@ -8,7 +8,9 @@ const ref = {
 
 // add 'current' class to current link
 const pathname = window.location.pathname;
-if (pathname === '/shopping-list.html') {
+const currentPath = pathname.split('/').splice(-1).join(' ').trim();
+
+if (currentPath === 'shopping-list.html') {
   ref.homeBtnEl.classList.toggle('current');
   ref.shopBtnEl.classList.toggle('current');
 }
