@@ -21,8 +21,30 @@ async function createBlock() {
   try {
     const { data } = await topBooksAPI.fetchTopBooks();
 
+    let randomCategoryNum = [];
+    function generateUniqueRandom(maxNr) {
+      let random = (Math.random() * maxNr).toFixed();
+
+      random = Number(random);
+
+      if (!randomCategoryNum.includes(random)) {
+        randomCategoryNum.push(random);
+        return;
+      } else {
+        if (randomCategoryNum.length < maxNr) {
+          return generateUniqueRandom(maxNr);
+        } else {
+          return false;
+        }
+      }
+    }
+
     for (let i = 0; i < 4; i++) {
-      let topBooks = data[i].books;
+      generateUniqueRandom(17);
+    }
+
+    randomCategoryNum.forEach(el => {
+      let topBooks = data[el].books;
       let markUpCount = 0;
 
       if (bodyWidth <= 767) {
@@ -52,7 +74,7 @@ async function createBlock() {
 
       booksContainer.insertAdjacentHTML('beforeend', markup);
       findBtn();
-    }
+    });
   } catch (error) {
     Notify.failure('Something went wrong. Please, try later.');
   }
@@ -109,4 +131,3 @@ function addActiveClassToCategoryListItem(name) {
     }
   });
 }
-
