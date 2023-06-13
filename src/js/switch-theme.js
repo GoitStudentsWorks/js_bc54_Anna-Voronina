@@ -48,7 +48,6 @@ function changeAmazonIcon(color) {
   const amazonPictures = document.querySelectorAll('.amazon-picture');
   if (storageData) {
     if (color === 'dark') {
-      console.log('dark');
       for (const amazonPicture of amazonPictures) {
         amazonPicture.children[0].srcset = whiteAmazonWebp;
         amazonPicture.children[1].srcset = whiteAmazonPng;

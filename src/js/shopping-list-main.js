@@ -68,7 +68,6 @@ function deleteCard() {
           e.target.closest('li').remove();
 
           if (bookStorage.length === 0) {
-            console.log(bookStorage.length);
             setTimeout(() => {
               listContainer.innerHTML = emptyShoppingMarkup();
             }, 0);

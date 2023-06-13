@@ -15,7 +15,7 @@ const createCategoriesItem = async () => {
     const { data } = await swaggerCategoriesApi.fetchBooksCategoryList();
     const searchCategory = data
       .map(category => {
-        return `<a class="aside-link" ><li class="aside-item">${category.list_name}</li></a>`;
+        return `<li class="aside-item"><a class="aside-link" >${category.list_name}</a></li>`;
       })
       .join('');
     categoriesList.innerHTML = searchCategory;
@@ -29,7 +29,7 @@ let activeCategoryLink = null;
 
 //ф-я відображення книг
 const onCategoriesLinkClick = event => {
-  if (event.target.nodeName !== 'LI') {
+  if (event.target.nodeName !== 'A') {
     return;
   }
 

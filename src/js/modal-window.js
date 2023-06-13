@@ -88,7 +88,7 @@ function onUpdateShopList() {
   const title = document.querySelector('.modal-book-name').textContent;
   if (modalShoppingBtn.textContent === 'add to shopping list') {
     localStorage.addBookToStorage(bookApi);
-    Notify.success('The book has been added to your shopping cart.');
+    Notify.info('The book has been added to your shopping cart.');
     removeBtn();
     countBook();
   } else {
@@ -104,7 +104,7 @@ function onUpdateShopList() {
     }
     countBook();
     addBtn();
-    Notify.failure('The book has been removed from your shopping cart.');
+    Notify.info('The book has been removed from your shopping cart.');
   }
 }
 
