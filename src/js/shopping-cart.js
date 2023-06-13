@@ -1,12 +1,17 @@
-import amazonImg from '../images/shopping/amazon.png';
-import amazonWebp from '../images/shopping/amazon.webp';
+import blackAmazonPng from '../images/shopping/amazon.png';
+import blackAmazonWebp from '../images/shopping/amazon.webp';
 import appleBook from '../images/shopping/apple.png';
 import appleWebp from '../images/shopping/apple.webp';
 import bookShopIcon from '../images/shopping/bookshop.png';
 import bookShopWebp from '../images/shopping/bookshop.webp';
+import whiteAmazonPng from '../images/shopping/amazon-white.png';
+import whiteAmazonWebp from '../images/shopping/amazon-white.webp';
 import sprite from '../images/sprite.svg';
 
 const listContainer = document.querySelector('.js-shopping-list');
+const isHtmlElDark = document.documentElement.classList.contains('dark');
+let amazonImg = blackAmazonPng;
+let amazonWebp = blackAmazonWebp;
 
 let bodyWidth = 0;
 onload = event => {
@@ -26,6 +31,10 @@ export default function (bookColection) {
         apple,
         bookShop,
       } = book;
+      if (isHtmlElDark) {
+        amazonImg = whiteAmazonPng;
+        amazonWebp = whiteAmazonWebp;
+      }
       description.length !== 0
         ? description
         : (description =
@@ -53,7 +62,7 @@ export default function (bookColection) {
                         <ul class="shop-cart-media">
                             <li class="shop-cart-media-item">
                                 <a href="${amazon}" target="_blank" rel="noopener noreferrer">
-                                    <picture>
+                                    <picture class="amazon-picture">
                                         <source srcset="${amazonWebp}" type="image/webp" />
                                         <source srcset="${amazonImg}" type="image/png" />
                                         <img class="media-icon amazon-icon" src="${amazonImg}" alt="Amazon logo" />
