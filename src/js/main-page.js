@@ -3,17 +3,12 @@ import { Notify } from 'notiflix';
 import createBook from './templates/create-book.js';
 import addListener from './modal-window.js';
 import emptySeeMoreBooksMarkup from './templates/empty-category-markup';
+import { bodyWidth } from './components/loader.js';
 
 const booksContainer = document.querySelector('.category-list');
 const title = document.querySelector('.home-title');
 
 const topBooksAPI = new SwaggerAPI();
-
-let bodyWidth = 0;
-
-onload = event => {
-  bodyWidth = event.target.body.clientWidth;
-};
 
 createBlock();
 
