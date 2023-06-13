@@ -38,7 +38,9 @@ async function onOpenModalWindow(event) {
     bookApi = resp.data;
     console.log(bookApi);
     createBookMarkup(bookApi);
-    createShoppingBtn(bookApi);
+    setTimeout(() => {
+      createShoppingBtn(bookApi);
+    }, 0);
     modalShoppingBtn.addEventListener('click', onUpdateShopList);
   } catch {
     err => console.log(err);
@@ -55,9 +57,10 @@ function createShoppingBtn(data) {
     if (book.title === data.title) {
       removeBtn();
       return;
-    } else {
-      addBtn();
     }
+    // else {
+    addBtn();
+    // }
   }
 }
 
