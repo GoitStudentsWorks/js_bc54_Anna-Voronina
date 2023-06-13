@@ -17,6 +17,10 @@
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html.light {
   --body-bg-color: #f6f6f6;
   --bg-color: #ffffff;

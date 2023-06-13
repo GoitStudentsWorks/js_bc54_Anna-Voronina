@@ -1,4 +1,5 @@
-.loader {
+.loader,
+.click-loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,12 +13,14 @@
   transition: opacity 500ms 250ms, visibility 500ms;
 }
 
-.loader--hidden {
+.loader--hidden,
+.click-is-hidden {
   opacity: 0;
   visibility: hidden;
 }
 
-.loader::after {
+.loader::after,
+.click-loader::after {
   content: '';
   width: 75px;
   height: 75px;

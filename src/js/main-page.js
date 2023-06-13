@@ -7,6 +7,7 @@ import { bodyWidth } from './components/loader.js';
 
 const booksContainer = document.querySelector('.category-list');
 const title = document.querySelector('.home-title');
+const loader = document.querySelector('.click-loader');
 
 const topBooksAPI = new SwaggerAPI();
 
@@ -85,23 +86,27 @@ function findBtn() {
 }
 
 async function onSeeMoreBtnClick(event) {
+  loader.classList.remove('click-is-hidden');
   try {
-    const name =
-      event.target.previousElementSibling.previousElementSibling.textContent;
+    setTimeout(async () => {
+      const name =
+        event.target.previousElementSibling.previousElementSibling.textContent;
 
-    topBooksAPI.categoryName = name;
-    const { data } = await topBooksAPI.fetchBooksByCategory();
+      topBooksAPI.categoryName = name;
+      const { data } = await topBooksAPI.fetchBooksByCategory();
 
-    if (data.length === 0) {
-      booksContainer.innerHTML = emptySeeMoreBooksMarkup();
-      return;
-    }
+      if (data.length === 0) {
+        booksContainer.innerHTML = emptySeeMoreBooksMarkup();
+        return;
+      }
 
-    title.innerHTML = divideTitleElements(name);
-    booksContainer.classList.add('category-list-click');
-    booksContainer.innerHTML = createBook(data);
-    addActiveClassToCategoryListItem(name);
-    addListener();
+      title.innerHTML = divideTitleElements(name);
+      booksContainer.classList.add('category-list-click');
+      booksContainer.innerHTML = createBook(data);
+      addActiveClassToCategoryListItem(name);
+      addListener();
+      loader.classList.add('click-is-hidden');
+    }, 250);
   } catch (error) {
     Notify.failure('Something went wrong. Please, try later.');
   }
