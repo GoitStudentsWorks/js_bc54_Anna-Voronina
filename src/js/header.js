@@ -4,7 +4,13 @@ import { countBook } from './templates/shoppingListCounter';
 const ref = {
   homeBtnEl: document.querySelector('.js-header-home-btn'),
   shopBtnEl: document.querySelector('.js-header-shop-btn'),
+  signUpBtn: document.querySelector('.js-sign-up-btn'),
+  authModal: document.querySelector('.authorization-backdrop'),
+  authModalCloseBtn: document.querySelector('.js-auth-modal-close'),
 };
+
+ref.signUpBtn.addEventListener('click', onSignUpBtnClick);
+ref.authModalCloseBtn.addEventListener('click', onAuthModalCloseBtnClick);
 
 // add 'current' class to current link
 const pathname = window.location.pathname;
@@ -19,4 +25,12 @@ if (currentPath === 'shopping-list.html') {
 const storageBook = Storage.load('bookList');
 if (storageBook) {
   countBook();
+}
+
+function onSignUpBtnClick() {
+  ref.authModal.classList.remove('is-hidden');
+}
+
+function onAuthModalCloseBtnClick() {
+  ref.authModal.classList.add('is-hidden');
 }
