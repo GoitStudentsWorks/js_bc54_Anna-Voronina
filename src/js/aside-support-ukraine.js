@@ -1,6 +1,6 @@
 import { supUkrFonds } from './aside-support-fonds';
 
-//=================>>>>>>RANDERING FONDS<<<<<<=========================
+//====================>>>>>>RANDERING FONDS<<<<<<=========================
 
 const ulElement = document.querySelector('.sup-content-wrp');
 
@@ -21,7 +21,7 @@ const listItems = supUkrFonds.map(
 
 ulElement.innerHTML = listItems.join('');
 
-// ==================>>>>>SCROLL & CLICK-UP/DOWN<<<<<==================
+// ===================>>>>>SCROLL & CLICK-UP/DOWN<<<<<===================
 
 const svgDown = document.getElementById('svgDown');
 const svgUp = document.getElementById('svgUp');
