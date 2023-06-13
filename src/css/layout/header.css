@@ -15,7 +15,6 @@
 
 @media only screen and (min-width: 768px) {
   .header-container {
-    max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 22px;
@@ -27,7 +26,6 @@
   .header-container {
     display: flex;
     gap: 40px;
-    max-width: 1440px;
     padding-left: 24px;
     padding-right: 24px;
   }
