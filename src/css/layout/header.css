@@ -1,6 +1,10 @@
 .header-container {
   display: flex;
   justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -11,8 +15,21 @@
 
 @media only screen and (min-width: 768px) {
   .header-container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
     padding-top: 22px;
     padding-bottom: 22px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .header-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 

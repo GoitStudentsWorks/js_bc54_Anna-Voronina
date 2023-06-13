@@ -1,27 +1,31 @@
 const modal = document.getElementById("mobile-menu-modal");
-const openButton = document.querySelector(".js-open-menu-burger");
-const closeButton = document.querySelector(".close-mobile-modal-btn");
+const openButton = document.getElementById("open-menu-burger");
+const closeButton = document.getElementById("close-mobile-modal-btn");
 
 openButton.addEventListener("click", openModal);
 closeButton.addEventListener("click", closeModal);
 
 function openModal() {
-  modal.style.display = "block";
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
   openButton.classList.add("hidden");
   closeButton.classList.remove("hidden");
-  document.body.classList.add("modal-open");
 }
 
 function closeModal() {
-  modal.style.display = "none";
-  openButton.classList.remove("hidden");
+  modal.classList.remove("open");
+  document.body.style.overflow = "auto";
   closeButton.classList.add("hidden");
-  document.body.classList.remove("modal-open");
+  openButton.classList.remove("hidden");
 }
 
 window.addEventListener("DOMContentLoaded", function() {
-  modal.style.display = "none";
   closeButton.classList.add("hidden");
 });
+
+
+
+
+
 
 
