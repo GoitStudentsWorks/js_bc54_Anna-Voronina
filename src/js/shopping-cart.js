@@ -73,7 +73,7 @@ export default function (bookColection) {
                         <h4 class="shop-cart-author">${author}</h4>
                         <ul class="shop-cart-media">
                             <li class="shop-cart-media-item">
-                                <a href="${amazon}" target="_blank" rel="noopener noreferrer">
+                                <a href="${amazon}" target="_blank" rel="noopener noreferrer" aria-label="Amazon">
                                     <picture class="amazon-picture">
                                         <source srcset="${amazonWebp}" type="image/webp" />
                                         <source srcset="${amazonImg}" type="image/png" />
@@ -82,7 +82,7 @@ export default function (bookColection) {
                                 </a>    
                             </li>
                             <li class="shop-cart-media-item">
-                                <a href="${apple}" target="_blank" rel="noopener noreferrer">
+                                <a href="${apple}" target="_blank" rel="noopener noreferrer" aria-label="Apple Books">
                                     <picture>
                                         <source srcset="${appleWebp}" type="image/webp" />
                                         <source srcset="${appleBook}" type="image/png" />
@@ -91,7 +91,7 @@ export default function (bookColection) {
                                 </a>
                             </li>
                             <li class="shop-cart-media-item">
-                                <a href="${bookShop}" target="_blank" rel="noopener noreferrer">
+                                <a href="${bookShop}" target="_blank" rel="noopener noreferrer" aria-label="Bookshop">
                                     <picture>
                                         <source srcset="${bookShopWebp}" type="image/webp" /> 
                                         <source srcset="${bookShopIcon}" type="image/png" />
@@ -101,7 +101,7 @@ export default function (bookColection) {
                             </li>
                         </ul>
                     </div>
-                    <button class="shop-cart-btn" type="button" data-title="${title}">
+                    <button class="shop-cart-btn" type="button" data-title="${title}" aria-label="Remove button">
                         <svg class="shop-cart-btn-trash">
                             <use href="${sprite}#trash"></use>
                         </svg>
