@@ -7,16 +7,14 @@ import bookShopWebp from '../images/shopping/bookshop.webp';
 import whiteAmazonPng from '../images/shopping/amazon-white.png';
 import whiteAmazonWebp from '../images/shopping/amazon-white.webp';
 import sprite from '../images/sprite.svg';
+import getBodyWidth from './components/onload';
 
 const listContainer = document.querySelector('.js-shopping-list');
 const isHtmlElDark = document.documentElement.classList.contains('dark');
 let amazonImg = blackAmazonPng;
 let amazonWebp = blackAmazonWebp;
 
-let bodyWidth = 0;
-onload = event => {
-  bodyWidth = event.target.body.clientWidth;
-};
+const bodyWidth = getBodyWidth();
 
 export default function (bookColection) {
   const markup = bookColection
@@ -42,6 +40,7 @@ export default function (bookColection) {
       if (bodyWidth <= 767) {
         list_name = list_name.slice(0, 20) + '...';
         description = description.slice(0, 85) + '...';
+        title = title.slice(0, 16) + '...';
       }
       if (bodyWidth >= 768 && bodyWidth < 1440) {
         description.length > 1 && description.length < 250

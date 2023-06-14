@@ -41,6 +41,11 @@ function start() {
     const totalItems = bookStorage.length;
     paginationStart(totalItems);
     createMarkup(bookStorage, currentPage);
+
+    // const totalItems = bookStorage.length;
+    // if (bookStorage.length > itemsPerPage) {
+    //   paginationStart(totalItems);
+    // }
   }
 }
 
@@ -55,6 +60,7 @@ function deleteCard() {
           e.target.nodeName === 'svg' ||
           e.target.nodeName === 'use'
         ) {
+          console.log('tomato');
           const deleteBookIndex = bookStorage.indexOf(
             bookStorage.find(
               book => book.title === e.currentTarget.dataset.title
