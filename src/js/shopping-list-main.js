@@ -13,7 +13,6 @@ import { countBook } from './templates/shoppingListCounter';
 
 import { SwaggerAPI } from './swagger-api.js';
 
-// import 'tui-pagination/dist/tui-pagination.css';
 import Pagination from 'tui-pagination';
 
 const booksApi = new SwaggerAPI();
@@ -37,11 +36,14 @@ start();
 function start() {
   if (!bookStorage || bookStorage.length === 0) {
     listContainer.innerHTML = emptyShoppingMarkup();
-  } else {
-    const totalItems = bookStorage.length;
-    paginationStart(totalItems);
-    createMarkup(bookStorage, currentPage);
+    return;
   }
+
+  const totalItems = bookStorage.length;
+  if (bookStorage.length > itemsPerPage) {
+    paginationStart(totalItems);
+  }
+  createMarkup(bookStorage, currentPage);
 }
 
 function deleteCard() {
@@ -66,6 +68,10 @@ function deleteCard() {
           bookStorage.splice(deleteBookIndex, 1);
           Storage.save('bookList', bookStorage);
           e.target.closest('li').remove();
+
+          if (bookStorage.length <= itemsPerPage) {
+            paginationContainerRef.classList.add('is-hidden');
+          }
 
           if (bookStorage.length === 0) {
             setTimeout(() => {
