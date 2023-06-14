@@ -13,17 +13,10 @@
   <nav class="header-nav">
     <ul class="list header-nav-list">
       <li class="header-nav-item">
-        <a
-          class="header-nav-link current js-header-home-btn"
-          href="./index.html"
-          >HOME</a
-        >
+        <a class="header-nav-link current js-header-home-btn" href="./index.html">HOME</a>
       </li>
       <li class="header-nav-item">
-        <a
-          class="header-nav-link shopping-list-header js-header-shop-btn"
-          href="./shopping-list.html"
-          >SHOPPING LIST
+        <a class="header-nav-link shopping-list-header js-header-shop-btn" href="./shopping-list.html">SHOPPING LIST
           <svg class="cart" width="20" height="20">
             <use href="./images/sprite.svg#uil_cart"></use>
           </svg>
@@ -39,21 +32,21 @@
       <span class="slider round"></span>
     </label>
 
-    <button
-      class="menu-burger js-open-menu-burger"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
+    <button class="menu-burger js-open-menu-burger" aria-expanded="false" aria-controls="mobile-menu">
       <svg class="menu-burger-icon-open" width="28" height="28">
         <use href="./images/sprite.svg#burger"></use>
       </svg>
     </button>
 
-    <button class="button login-btn js-sign-up-btn" type="button">
-      Sign up<svg class="arrow-right" width="20" height="20">
+    <button class="button login-btn js-sign-up-btn" type="button" id="singUpBtnHeader">
+      <svg class="user-icon is-hidden" width="13" height="17">
+        <use href="./images/sprite.svg#user"></use>
+      </svg><span class="sign-up-btn-text">Sign up</span>
+      <svg class="arrow-right" width="20" height="20">
         <use href="./images/sprite.svg#arrow-right"></use>
       </svg>
     </button>
+    <button class="sign-out">sign out</button>
 
     <button class="close-mobile-modal-btn" type="button">
       <svg class="mobile-modal-icon-close" width="14" height="14">
