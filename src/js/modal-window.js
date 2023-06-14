@@ -139,7 +139,9 @@ alt="Book cover"
   }
 </p>
 <div class="modal-icons-container">
-  <a href="${book.buy_links[0].url}" target="_blank" rel="noopener noreferrer"
+  <a href="${
+    book.buy_links[0].url
+  }" target="_blank" rel="noopener noreferrer" aria-label="Amazon"
     ><picture class="modal-icon">
       <source
         srcset="${amazonWebp}"
@@ -154,7 +156,9 @@ alt="Book cover"
         alt="Amazon"
       /> </picture
   ></a>
-  <a href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer"
+  <a href="${
+    book.buy_links[1].url
+  }" target="_blank" rel="noopener noreferrer" aria-label="Apple Books"
     ><picture class="modal-icon">
       <source
         srcset="${apple}"
@@ -169,7 +173,9 @@ alt="Book cover"
         alt="Apple Books"
       /> </picture
   ></a>
-  <a href="${book.buy_links[4].url}" target="_blank" rel="noopener noreferrer"
+  <a href="${
+    book.buy_links[4].url
+  }" target="_blank" rel="noopener noreferrer" aria-label="Bookshop"
     ><picture class="modal-icon">
       <source
         srcset="${bookshop}"
