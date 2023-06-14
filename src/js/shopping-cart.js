@@ -41,11 +41,21 @@ export default function (bookColection) {
       newTitle = title;
 
       if (bodyWidth <= 767) {
-        list_name = list_name.slice(0, 20) + '...';
+        console.log('767');
+        list_name.lehgth > 20
+          ? (list_name = list_name.slice(0, 20) + '...')
+          : (list_name = list_name);
+        // list_name = list_name.slice(0, 20) + '...';
         description = description.slice(0, 85) + '...';
-        newTitle = title.slice(0, 16) + '...';
+        title.length > 16
+          ? (newTitle = title.slice(0, 16) + '...')
+          : (newTitle = title);
+      }
+      if (bodyWidth < 375) {
+        list_name = list_name.slice(0, 10) + '...';
       }
       if (bodyWidth >= 768 && bodyWidth < 1440) {
+        console.log('768');
         description.length > 1 && description.length < 250
           ? description
           : description.slice(0, 250) + '...';

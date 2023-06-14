@@ -12,6 +12,7 @@ import localStorage from './local-storage.js';
 import { Notify } from 'notiflix';
 import { SwaggerAPI } from './swagger-api.js';
 import { countBook } from './templates/shoppingListCounter';
+import { updateDatabase } from './templates/firebase';
 const fetchAPI = new SwaggerAPI();
 
 const backdrop = document.querySelector('.backdrop');
@@ -23,6 +24,7 @@ const progressBtn = document.querySelector('#progress');
 
 let amazonPng = blackAmazonPng;
 let amazonWebp = blackAmazonWebp;
+
 let bookApi = {};
 
 export default function addListener() {
@@ -102,10 +104,12 @@ function onUpdateShopList() {
     if (storage.length === 0) {
       localStorage.remove('bookList');
     }
+
     countBook();
     addBtn();
     Notify.info('The book has been removed from your shopping cart.');
   }
+  updateDatabase();
 }
 
 function addBtn() {

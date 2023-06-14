@@ -7,3 +7,4 @@ import './modal-window.js';
 import './switch-theme.js';
 import '../js/components/scroll-up.js';
 import '../js/components/loader.js';
+import '../js/aut-form.js';

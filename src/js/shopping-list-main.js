@@ -10,6 +10,7 @@ import book265_22 from '../images/shopping/books_265_@2.png';
 import Storage from './local-storage';
 import getShoppingCartMarkup from './shopping-cart';
 import { countBook } from './templates/shoppingListCounter';
+import { updateDatabase } from './templates/firebase';
 
 import { SwaggerAPI } from './swagger-api.js';
 
@@ -91,6 +92,7 @@ function deleteCard() {
           createMarkup(bookStorage, currentPage);
 
           countBook();
+          updateDatabase();
           return;
         }
       });
