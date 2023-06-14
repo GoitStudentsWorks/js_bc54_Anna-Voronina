@@ -87,15 +87,6 @@
   font-weight: 500;
 }
 
-.current {
-  color: var(--light-black-color);
-  background-color: var(--yellow-color);
-  padding: 8px 16px;
-  border-radius: 36px;
-  font-weight: 700;
-  border: none;
-}
-
 .shopping-list-header {
   display: flex;
   align-items: center;
@@ -231,4 +222,13 @@ input:checked + .slider:before {
 
 .cart {
   fill: var(--header-icon-color);
+}
+
+.current {
+  color: var(--light-black-color);
+  background-color: var(--yellow-color);
+  padding: 8px 16px;
+  border-radius: 36px;
+  font-weight: 700;
+  border: none;
 }
