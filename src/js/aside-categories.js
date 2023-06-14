@@ -15,7 +15,7 @@ const createCategoriesItem = async () => {
     const { data } = await swaggerCategoriesApi.fetchBooksCategoryList();
     const searchCategory = data
       .map(category => {
-        return `<li class="aside-item"><a class="aside-link" >${category.list_name}</a></li>`;
+        return `<li class="aside-item"><a class="aside-link"  aria-label="${category.list_name}">${category.list_name}</a></li>`;
       })
       .join('');
     categoriesList.innerHTML = searchCategory;

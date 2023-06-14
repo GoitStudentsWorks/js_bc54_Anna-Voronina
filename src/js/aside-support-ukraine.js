@@ -8,10 +8,14 @@ const listItems = supUkrFonds.map(
   (item, index) => `
   <li class="support-company">
     <p class="sup-comp-numb">${(index + 1).toString().padStart(2, '0')}</p>
-    <a href="${item.url}" target="_blank" rel="noopener noreferrer">
+    <a href="${
+      item.url
+    }" target="_blank" rel="noopener noreferrer" aria-label="${item.title}">
       <picture>
-        <source srcset="${item.imgWebp}" type="image/webp" />
-        <source srcset="${item.img}" type="image/png" />
+        <source srcset="${item.imgWebp} 1x, ${
+    item.imgWebp2X
+  } 2x" type="image/webp" />
+        <source srcset="${item.img} 1x, ${item.img2X} 2x" type="image/png" />
         <img class="sup-company-img" src="${item.img}" alt="${item.title}" />
       </picture>
     </a>
