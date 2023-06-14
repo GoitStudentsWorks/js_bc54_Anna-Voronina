@@ -1,5 +1,4 @@
 export default function createCategoriesMarkup(bookInfo) {
-
   const markup = bookInfo
     .map(book => {
       const { book_image, description, title, author, _id } = book;
@@ -7,7 +6,7 @@ export default function createCategoriesMarkup(bookInfo) {
       return `
 
 <li class="category-list-item">
-<a class="book-link" href="" data-id = "${_id}">
+<a class="book-link" href="" data-id="${_id}" aria-label="${title}">
 <div class="book-thumb">
 <img class="book-image" src="${book_image}" alt="${description}" />
 <div class="book-overlay">
@@ -24,4 +23,3 @@ export default function createCategoriesMarkup(bookInfo) {
     .join('');
   return markup;
 }
-
