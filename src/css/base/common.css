@@ -67,7 +67,7 @@ html.dark {
   --modal-bg-color: #202024;
   --modal-desr-text-color: rgba(255, 255, 255, 0.5);
   /* Pagination */
-  --current-page-bg-color: #ffffff;
+  --current-btn-bg-color: #ffffff;
   --current-btn-text-color: #000000;
   --prev-icon-color: #ffffff;
   --btn-border-color: #ffffff;
