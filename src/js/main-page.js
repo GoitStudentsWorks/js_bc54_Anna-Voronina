@@ -3,11 +3,14 @@ import { Notify } from 'notiflix';
 import createBook from './templates/create-book.js';
 import addListener from './modal-window.js';
 import emptySeeMoreBooksMarkup from './templates/empty-category-markup';
-import { bodyWidth } from './components/loader.js';
+import getBodyWidth from './components/onload.js';
 
 const booksContainer = document.querySelector('.category-list');
 const title = document.querySelector('.home-title');
 const loader = document.querySelector('.click-loader');
+const mainContent = document.querySelector('.main-content');
+
+const bodyWidth = getBodyWidth();
 
 const topBooksAPI = new SwaggerAPI();
 
@@ -105,6 +108,9 @@ async function onSeeMoreBtnClick(event) {
       booksContainer.innerHTML = createBook(data);
       addActiveClassToCategoryListItem(name);
       addListener();
+      mainContent.scrollIntoView({
+        behavior: 'smooth',
+      });
       loader.classList.add('click-is-hidden');
     }, 250);
   } catch (error) {

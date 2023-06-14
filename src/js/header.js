@@ -3,6 +3,8 @@ import Storage from './local-storage';
 const ref = {
   homeBtnEl: document.querySelector('.js-header-home-btn'),
   shopBtnEl: document.querySelector('.js-header-shop-btn'),
+  burgerHomeBtnEl: document.querySelector('.js-burger-home-btn'),
+  burgerShopBtnEl: document.querySelector('.js-burger-shop-btn'),
   signUpBtn: document.querySelector('.js-sign-up-btn'),
   authModal: document.querySelector('.authorization-backdrop'),
   authModalCloseBtn: document.querySelector('.js-auth-modal-close'),
@@ -18,6 +20,8 @@ const currentPath = pathname.split('/').splice(-1).join(' ').trim();
 if (currentPath === 'shopping-list.html') {
   ref.homeBtnEl.classList.toggle('current');
   ref.shopBtnEl.classList.toggle('current');
+  ref.burgerHomeBtnEl.classList.toggle('current');
+  ref.burgerShopBtnEl.classList.toggle('current');
 }
 //end of
 

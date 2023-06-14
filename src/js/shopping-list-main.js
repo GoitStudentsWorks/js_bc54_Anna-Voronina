@@ -10,10 +10,10 @@ import book265_22 from '../images/shopping/books_265_@2.png';
 import Storage from './local-storage';
 import getShoppingCartMarkup from './shopping-cart';
 import { countBook } from './templates/shoppingListCounter';
+import { updateDatabase } from './templates/firebase';
 
 import { SwaggerAPI } from './swagger-api.js';
 
-import 'tui-pagination/dist/tui-pagination.css';
 import Pagination from 'tui-pagination';
 
 const booksApi = new SwaggerAPI();
@@ -37,11 +37,14 @@ start();
 function start() {
   if (!bookStorage || bookStorage.length === 0) {
     listContainer.innerHTML = emptyShoppingMarkup();
-  } else {
-    const totalItems = bookStorage.length;
-    paginationStart(totalItems);
-    createMarkup(bookStorage, currentPage);
+    return;
   }
+
+  const totalItems = bookStorage.length;
+  if (bookStorage.length > itemsPerPage) {
+    paginationStart(totalItems);
+  }
+  createMarkup(bookStorage, currentPage);
 }
 
 function deleteCard() {
@@ -67,6 +70,10 @@ function deleteCard() {
           Storage.save('bookList', bookStorage);
           e.target.closest('li').remove();
 
+          if (bookStorage.length <= itemsPerPage) {
+            paginationContainerRef.classList.add('is-hidden');
+          }
+
           if (bookStorage.length === 0) {
             setTimeout(() => {
               listContainer.innerHTML = emptyShoppingMarkup();
@@ -85,6 +92,7 @@ function deleteCard() {
           createMarkup(bookStorage, currentPage);
 
           countBook();
+          updateDatabase();
           return;
         }
       });

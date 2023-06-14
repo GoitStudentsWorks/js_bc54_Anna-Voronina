@@ -6,41 +6,22 @@
       </svg>
     </button>
     <form class="authorization-form" autocomplete="on">
-      <input
-        class="authorization-input"
-        type="name"
-        name="name"
-        placeholder="Name"
-        autofocus
-      />
-      <input
-        class="authorization-input"
-        type="email"
-        name="email"
-        placeholder="Email"
-      />
+      <input class="authorization-input" type="name" name="name" placeholder="Name" autofocus id="userName" />
+      <input class="authorization-input" type="email" name="email" placeholder="Email" id="userEmail" />
       <svg class="input-img-mail" width="28" height="28">
         <use href="./images/sprite.svg#mail"></use>
       </svg>
-      <input
-        class="authorization-input"
-        type="password"
-        name="password"
-        placeholder="Password"
-      />
+      <input class="authorization-input" type="password" name="password" placeholder="Password" id="userPassword" />
       <svg class="input-img-pass" width="28" height="28">
         <use href="./images/sprite.svg#lock"></use>
       </svg>
       <button class="authorization-form-submit" type="submit">Sing up</button>
     </form>
     <div class="authorization-btn">
-      <button
-        class="authorization-btn-up authorization-btn-active"
-        type="button"
-      >
+      <button class="authorization-btn-up authorization-btn-active" id="singUp" type="button">
         sing up
       </button>
-      <button class="authorization-btn-in" type="button">sing in</button>
+      <button class="authorization-btn-in" type="button" id="singIn">sing in</button>
     </div>
   </div>
 </div>

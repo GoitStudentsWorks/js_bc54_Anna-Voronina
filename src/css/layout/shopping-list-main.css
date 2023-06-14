@@ -88,6 +88,12 @@
   margin-bottom: 4px;
 }
 
+@media only screen and (max-width: 374px) {
+  .shop-cart-title {
+    max-width: 110px;
+  }
+}
+
 .shop-cart-category {
   letter-spacing: 0.03em;
   color: var(--grey-text-color);
