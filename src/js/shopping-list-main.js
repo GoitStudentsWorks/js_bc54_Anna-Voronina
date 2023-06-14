@@ -60,7 +60,6 @@ function deleteCard() {
           e.target.nodeName === 'svg' ||
           e.target.nodeName === 'use'
         ) {
-          console.log('tomato');
           const deleteBookIndex = bookStorage.indexOf(
             bookStorage.find(
               book => book.title === e.currentTarget.dataset.title

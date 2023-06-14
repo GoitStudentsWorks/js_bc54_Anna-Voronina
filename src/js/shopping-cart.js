@@ -13,6 +13,7 @@ const listContainer = document.querySelector('.js-shopping-list');
 const isHtmlElDark = document.documentElement.classList.contains('dark');
 let amazonImg = blackAmazonPng;
 let amazonWebp = blackAmazonWebp;
+let newTitle;
 
 const bodyWidth = getBodyWidth();
 
@@ -37,10 +38,12 @@ export default function (bookColection) {
         ? description
         : (description =
             'We are pleased to inform you that all information about this book you can found on partner resources (such as Amazon, etc.)');
+      newTitle = title;
+
       if (bodyWidth <= 767) {
         list_name = list_name.slice(0, 20) + '...';
         description = description.slice(0, 85) + '...';
-        title = title.slice(0, 16) + '...';
+        newTitle = title.slice(0, 16) + '...';
       }
       if (bodyWidth >= 768 && bodyWidth < 1440) {
         description.length > 1 && description.length < 250
@@ -53,7 +56,7 @@ export default function (bookColection) {
                     <img class="shop-image" src="${book_image}" alt="${title}">
                 </div>
                 <div class="shop-cart-info">
-                    <h2 class="shop-cart-title">${title}</h2>
+                    <h2 class="shop-cart-title">${newTitle}</h2>
                     <h3 class="shop-cart-category">${list_name}</h3>
                     <p class="shop-cart-description">${description}</p>
                     <div class="shop-cart-bottom-wrap">
