@@ -29,11 +29,16 @@
   }
 }
 
+.user-email-wrapper,
+.user-password-wrapper {
+  position: relative;
+}
+
 .input-img-mail {
   position: absolute;
   display: block;
-  top: 130px;
-  right: 44px;
+  top: 20%;
+  right: 5%;
   stroke: var(--header-icon-color);
   fill: transparent;
 }
@@ -41,8 +46,8 @@
 .input-img-pass {
   position: absolute;
   display: block;
-  top: 204px;
-  right: 44px;
+  top: 20%;
+  right: 5%;
   stroke: var(--header-icon-color);
   fill: transparent;
 }
@@ -51,15 +56,11 @@
   .input-img-mail {
     width: 28px;
     height: 28px;
-    top: 192px;
-    right: 72px;
   }
 
   .input-img-pass {
     width: 28px;
     height: 28px;
-    top: 288px;
-    right: 72px;
   }
 }
 
@@ -73,9 +74,12 @@
   font-size: 16px;
   line-height: 1.12;
   letter-spacing: -0.01em;
-  text-transform: uppercase;
   color: var(--text-color);
   background-color: transparent;
+}
+
+.authorization-input::placeholder {
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px) {
@@ -87,7 +91,8 @@
   }
 }
 
-.authorization-form-submit {
+.authorization-form-submit,
+.authorization-sign-in-btn {
   padding: 16px 24px;
   margin-bottom: 14px;
   width: 100%;
@@ -103,7 +108,8 @@
 }
 
 @media screen and (min-width: 768px) {
-  .authorization-form-submit {
+  .authorization-form-submit,
+  .authorization-sign-in-btn {
     min-height: 64px;
     padding: 20px;
     margin-top: 12px;
@@ -132,11 +138,11 @@
 
 @media screen and (min-width: 768px) {
   .authorization-btn-in,
-.authorization-btn-up {
-font-size: 18px;
-height: 24px;
-line-height: 1.33px;
-}
+  .authorization-btn-up {
+    font-size: 18px;
+    height: 24px;
+    line-height: 1.33px;
+  }
 }
 
 .authorization-btn-active {
