@@ -13,7 +13,7 @@ import { countBook } from './templates/shoppingListCounter';
 
 import { SwaggerAPI } from './swagger-api.js';
 
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 import Pagination from 'tui-pagination';
 
 const booksApi = new SwaggerAPI();
