@@ -8,6 +8,7 @@ import getBodyWidth from './components/onload.js';
 const booksContainer = document.querySelector('.category-list');
 const title = document.querySelector('.home-title');
 const loader = document.querySelector('.click-loader');
+const mainContent = document.querySelector('.main-content');
 
 const bodyWidth = getBodyWidth();
 
@@ -107,6 +108,9 @@ async function onSeeMoreBtnClick(event) {
       booksContainer.innerHTML = createBook(data);
       addActiveClassToCategoryListItem(name);
       addListener();
+      mainContent.scrollIntoView({
+        behavior: 'smooth',
+      });
       loader.classList.add('click-is-hidden');
     }, 250);
   } catch (error) {
