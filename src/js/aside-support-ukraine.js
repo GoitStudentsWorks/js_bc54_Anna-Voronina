@@ -1,16 +1,6 @@
 import { supUkrFonds } from './aside-support-fonds';
 
-// -----------VERTICAL SCROLL---------------
-const supUkrBtn = document.querySelector('.sup-ukr-scroll-btn');
-const modalContent = document.querySelector('.sup-content-wrp');
-
-const supUkrScroll = () => {
-  modalContent.scrollTop = modalContent.scrollHeight;
-};
-
-supUkrBtn.addEventListener('click', supUkrScroll);
-
-// ------------RANDERING FONDS---------------
+//====================>>>>>>RANDERING FONDS<<<<<<=========================
 
 const ulElement = document.querySelector('.sup-content-wrp');
 
@@ -30,24 +20,38 @@ const listItems = supUkrFonds.map(
 );
 
 ulElement.innerHTML = listItems.join('');
-// -----------------Функція прокрутки вгору-----------------
 
+// ===================>>>>>SCROLL & CLICK-UP/DOWN<<<<<===================
+
+const svgDown = document.getElementById('svgDown');
+const svgUp = document.getElementById('svgUp');
 const container = document.querySelector('.sup-content-wrp');
-const scrollDownButton = document.querySelector('#scrollDownButton');
-const scrollUpButton = document.querySelector('#scrollUpButton');
 
-container.addEventListener('scroll', function () {
-  if (container.scrollTop === container.scrollHeight - container.clientHeight) {
-    scrollDownButton.style.display = 'none';
-    scrollUpButton.style.display = 'block';
+function handleScroll() {
+  if (container.scrollTop === 0) {
+    svgUp.classList.add('is-hidden-sup-ukr');
+    svgDown.classList.remove('is-hidden-sup-ukr');
   } else {
-    scrollDownButton.style.display = 'block';
-    scrollUpButton.style.display = 'none';
+    svgUp.classList.remove('is-hidden-sup-ukr');
+    svgDown.classList.add('is-hidden-sup-ukr');
   }
-});
+}
 
-scrollUpButton.addEventListener('click', function () {
-  container.scrollTop = 0;
-});
+function handleClick() {
+  if (container.scrollTop === 0) {
+    container.scrollTo({
+      top: container.scrollHeight,
+      behavior: 'smooth',
+    });
+  } else {
+    container.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+}
 
-scrollUpButton.style.display = 'none';
+svgDown.addEventListener('click', handleClick);
+svgUp.addEventListener('click', handleClick);
+
+container.addEventListener('scroll', handleScroll);

@@ -1,11 +1,9 @@
 .mobile-menu-modal {
   position: fixed;
   top: 60px;
-  left: 0;
-  right: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
   background: radial-gradient(
@@ -13,6 +11,11 @@
     #4f2ee8 18.03%,
     #ffffff 100%
   );
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu-modal.open {
+  transform: translateX(100%);
 }
 
 .js-open-menu-burger {
@@ -35,11 +38,21 @@
   position: relative;
   top: 20px;
   bottom: 20px;
-  max-width: 375px;
   height: 100vh;
   box-sizing: border-box;
   overflow-y: auto;
-  margin: 0 auto;
+  background-size: 100% auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-image: url(/src/images/modal-window/mobile-menu.png);
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .mobile-menu-modal-content {
+    background-image: url(/src/images/modal-window/mobile-menu@2x.png);
+  }
 }
 
 .close-mobile-modal-btn {
@@ -75,6 +88,7 @@
   margin-bottom: 126px;
   display: flex;
   justify-content: space-between;
+  margin-left: 20px;
 }
 
 .mobile-menu-modal .header-nav-mobile {
@@ -103,19 +117,11 @@ body.modal-open {
   overflow: auto;
 }
 
-.mobile-menu-image-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile-menu-image-container img {
-  max-width: 100%;
-  height: auto;
+.shopping-list-header.current {
+  color: var(--light-black-color);
+  background-color: var(--yellow-color);
+  padding: 8px 16px;
+  border-radius: 36px;
+  font-weight: 700;
+  border: none;
 }

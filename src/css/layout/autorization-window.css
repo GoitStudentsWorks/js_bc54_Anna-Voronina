@@ -32,65 +32,114 @@
 .input-img-mail {
   position: absolute;
   display: block;
-  top: 192px;
-  right: 72px;
-  stroke: var(--light-black-color);
+  top: 130px;
+  right: 44px;
+  stroke: var(--header-icon-color);
   fill: transparent;
 }
 
 .input-img-pass {
   position: absolute;
   display: block;
-  top: 288px;
-  right: 72px;
-  stroke: var(--light-black-color);
+  top: 204px;
+  right: 44px;
+  stroke: var(--header-icon-color);
   fill: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .input-img-mail {
+    width: 28px;
+    height: 28px;
+    top: 192px;
+    right: 72px;
+  }
+
+  .input-img-pass {
+    width: 28px;
+    height: 28px;
+    top: 288px;
+    right: 72px;
+  }
 }
 
 .authorization-input {
   width: 100%;
-  padding: 20px 40px;
-  margin-bottom: 28px;
-  border: 2px solid var(--header-border-color);
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  border: 2px solid var(--border-color);
   border-radius: 40px;
-  font-size: 18px;
-  line-height: 1.33;
+
+  font-size: 16px;
+  line-height: 1.12;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--nav-menu-text-color);
+  color: var(--text-color);
+  background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .authorization-input {
+    padding: 20px 40px;
+    margin-bottom: 28px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .authorization-form-submit {
-    padding: 20px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+  padding: 16px 24px;
+  margin-bottom: 14px;
   width: 100%;
-  min-height: 64px;
+  min-height: 50px;
   border-radius: 40px;
-  font-size: 18px;
+
+  font-size: 16px;
   line-height: 1.33px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--body-bg-color);
-  background-color: var(--header-border-color);
+  color: var(--auth-submit-btn-text-color);
+  background-color: var(--auth-submit-btn-bg-color);
 }
-.authorization-btn {
-font-size: 18px;
-display: flex;
-justify-content: center;
-gap: 20px;
 
+@media screen and (min-width: 768px) {
+  .authorization-form-submit {
+    min-height: 64px;
+    padding: 20px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.33px;
+  }
+}
+
+.authorization-btn {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .authorization-btn-in,
 .authorization-btn-up {
-    line-height: 1.33px;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    color: rgba(17, 17, 17, 0.5);
+  display: block;
+  height: 24px;
+  font-size: 14px;
+  line-height: 1.28px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--auth-sign-in-btn-text-color);
+}
+
+@media screen and (min-width: 768px) {
+  .authorization-btn-in,
+.authorization-btn-up {
+font-size: 18px;
+height: 24px;
+line-height: 1.33px;
+}
 }
 
 .authorization-btn-active {
- color: var( --blue-color);
- text-decoration: underline;
+  color: var(--blue-color);
+  text-decoration: underline;
 }

@@ -3,17 +3,16 @@ import { Notify } from 'notiflix';
 import createBook from './templates/create-book.js';
 import addListener from './modal-window.js';
 import emptySeeMoreBooksMarkup from './templates/empty-category-markup';
+import getBodyWidth from './components/onload.js';
 
 const booksContainer = document.querySelector('.category-list');
 const title = document.querySelector('.home-title');
+const loader = document.querySelector('.click-loader');
+const mainContent = document.querySelector('.main-content');
+
+const bodyWidth = getBodyWidth();
 
 const topBooksAPI = new SwaggerAPI();
-
-let bodyWidth = 0;
-
-onload = event => {
-  bodyWidth = event.target.body.clientWidth;
-};
 
 createBlock();
 
@@ -90,23 +89,30 @@ function findBtn() {
 }
 
 async function onSeeMoreBtnClick(event) {
+  loader.classList.remove('click-is-hidden');
   try {
-    const name =
-      event.target.previousElementSibling.previousElementSibling.textContent;
+    setTimeout(async () => {
+      const name =
+        event.target.previousElementSibling.previousElementSibling.textContent;
 
-    topBooksAPI.categoryName = name;
-    const { data } = await topBooksAPI.fetchBooksByCategory();
+      topBooksAPI.categoryName = name;
+      const { data } = await topBooksAPI.fetchBooksByCategory();
 
-    if (data.length === 0) {
-      booksContainer.innerHTML = emptySeeMoreBooksMarkup();
-      return;
-    }
+      if (data.length === 0) {
+        booksContainer.innerHTML = emptySeeMoreBooksMarkup();
+        return;
+      }
 
-    title.innerHTML = divideTitleElements(name);
-    booksContainer.classList.add('category-list-click');
-    booksContainer.innerHTML = createBook(data);
-    addActiveClassToCategoryListItem(name);
-    addListener();
+      title.innerHTML = divideTitleElements(name);
+      booksContainer.classList.add('category-list-click');
+      booksContainer.innerHTML = createBook(data);
+      addActiveClassToCategoryListItem(name);
+      addListener();
+      mainContent.scrollIntoView({
+        behavior: 'smooth',
+      });
+      loader.classList.add('click-is-hidden');
+    }, 250);
   } catch (error) {
     Notify.failure('Something went wrong. Please, try later.');
   }

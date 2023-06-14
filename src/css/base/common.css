@@ -17,6 +17,10 @@
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html.light {
   --body-bg-color: #f6f6f6;
   --bg-color: #ffffff;
@@ -39,6 +43,10 @@ html.light {
   --current-btn-text-color: #ffffff;
   --prev-icon-color: #b4afaf;
   --btn-border-color: #111111;
+  /* Authorization */
+  --auth-submit-btn-bg-color: #111111;
+  --auth-submit-btn-text-color: #f3f3f3;
+  --auth-sign-in-btn-text-color: rgba(17, 17, 17, 0.5);
 }
 
 html.dark {
@@ -59,10 +67,14 @@ html.dark {
   --modal-bg-color: #202024;
   --modal-desr-text-color: rgba(255, 255, 255, 0.5);
   /* Pagination */
-  --current-page-bg-color: #ffffff;
+  --current-btn-bg-color: #ffffff;
   --current-btn-text-color: #000000;
   --prev-icon-color: #ffffff;
   --btn-border-color: #ffffff;
+  /* Authorization */
+  --auth-submit-btn-bg-color: #f6f6f6;
+  --auth-submit-btn-text-color: #202024;
+  --auth-sign-in-btn-text-color: rgba(246, 246, 246, 0.5);
 }
 
 h1,
