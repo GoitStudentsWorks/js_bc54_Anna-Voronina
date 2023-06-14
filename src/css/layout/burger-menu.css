@@ -36,8 +36,8 @@
 
 .mobile-menu-modal-content {
   position: relative;
-  top: 20px;
-  bottom: 20px;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   box-sizing: border-box;
   overflow-y: auto;
@@ -84,15 +84,15 @@
   border: 1.5px solid #111111;
   border-radius: 18px;
   font-weight: 500;
-  padding: 14px;
   margin-bottom: 126px;
   display: flex;
   justify-content: space-between;
-  margin-left: 20px;
+  padding: 14px;
 }
 
 .mobile-menu-modal .header-nav-mobile {
   display: flex;
+  margin-bottom: auto;
 }
 
 .mobile-menu-modal .header-nav-list {
@@ -115,6 +115,8 @@ body.modal-open {
 
 .mobile-menu-modal-content {
   overflow: auto;
+  padding: 20px;
+  padding-bottom: 80px;
 }
 
 .shopping-list-header.current {
@@ -124,4 +126,17 @@ body.modal-open {
   border-radius: 36px;
   font-weight: 700;
   border: none;
+}
+
+.burger-log-out-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 118px;
+  height: 48px;
+  color: var(--light-black-color);
+  background-color: var(--white-color);
+  border: 1.5px solid var(--light-black-color);
+  border-radius: 18px;
+  padding: 14px 24px;
 }

@@ -6,6 +6,7 @@ const ref = {
   burgerHomeBtnEl: document.querySelector('.js-burger-home-btn'),
   burgerShopBtnEl: document.querySelector('.js-burger-shop-btn'),
   signUpBtn: document.querySelector('.js-sign-up-btn'),
+  logOutBtn: document.querySelector('.log-out-btn'),
   authModal: document.querySelector('.authorization-backdrop'),
   authModalCloseBtn: document.querySelector('.js-auth-modal-close'),
 };
@@ -31,8 +32,13 @@ if (currentPath === 'shopping-list.html') {
 // }
 
 function onSignUpBtnClick() {
-  ref.authModal.classList.remove('is-hidden');
-  document.body.style.overflow = 'hidden';
+  const hasUserId = Storage.load('userId');
+  if (!hasUserId) {
+    ref.authModal.classList.remove('is-hidden');
+    document.body.style.overflow = 'hidden';
+  } else {
+    ref.logOutBtn.classList.toggle('is-hidden');
+  }
 }
 
 function onAuthModalCloseBtnClick() {
